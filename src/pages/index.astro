@@ -1,0 +1,22 @@
+---
+import MainHead from '$components/MainHead.astro';
+import MainLayout from '$layouts/MainLayout.astro';
+import Card from '$components/Card.astro';
+import Hero from '$components/Landing/Hero.astro';
+
+// import Background from '../components/Background/Background.svelte';
+---
+
+<MainLayout theme="vibe">
+	<MainHead slot="head" />
+
+	<Hero>
+		<Card>
+			<h1>Luke Shafer</h1>
+		</Card>
+	</Hero>
+</MainLayout>
+
+<style>
+
+</style>

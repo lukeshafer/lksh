@@ -1,0 +1,30 @@
+---
+import 'normalize.css';
+import '@fontsource/nunito';
+
+import '$styles/defaults.css';
+import '$styles/colors.css';
+
+import Background from '$components/Background/Background.astro';
+import DarkModeToggle from '$components/DarkModeToggle.svelte';
+
+export interface Props {
+	theme?: 'vibe';
+}
+
+const defaultTheme = 'vibe';
+
+let { theme } = Astro.props as Props;
+
+if (!theme) theme = defaultTheme;
+---
+
+<html lang="en">
+	<slot name="head" />
+	<body>
+		<Background theme={theme}>
+			<DarkModeToggle client:load />
+			<slot />
+		</Background>
+	</body>
+</html>

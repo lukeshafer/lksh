@@ -1,0 +1,43 @@
+---
+import Dot from './Dot.svelte';
+
+export interface Props {
+	size: number;
+	count: number;
+	speed: number;
+	initialSpeed: number;
+}
+
+const { size, count, speed, initialSpeed } = Astro.props as Props;
+
+const dots = ((n) => [...Array(n).keys()])(count);
+---
+
+<ul class="background" aria-hidden="true">
+	{
+		dots.map(() => (
+			<Dot size={size} speed={speed} initialSpeed={initialSpeed} client:load />
+		))
+	}
+</ul>
+<style>
+	ul {
+		height: 0;
+		width: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		list-style-type: none;
+	}
+
+	li {
+		background-color: blue;
+		width: var(--size);
+		height: var(--size);
+
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+</style>
