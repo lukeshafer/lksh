@@ -1,0 +1,64 @@
+{
+	"$schema": "https://tokencss.com/schema@0.0.1",
+	"extends": ["@tokencss/core/preset"],
+	"media": {
+		"darkmode": { "value": "(prefers-color-scheme: dark)" }
+	},
+	"color": {
+		"slate": {
+			"9": { "value": "#080818" },
+			"8": { "value": "#242431" },
+			"7": { "value": "#3F3F4A" },
+			"6": { "value": "#5B5B63" },
+			"5": { "value": "#76767D" },
+			"4": { "value": "#919196" },
+			"3": { "value": "#ACACAF" },
+			"2": { "value": "#C7C7C9" },
+			"1": { "value": "#E2E2E3" },
+			"0": { "value": "#FDFDFD" }
+		}
+	},
+	"font": {
+		"display": {
+			"value": [
+				"RalewayVariable",
+				"system-ui",
+				"-apple-system",
+				"Segoe UI",
+				"Roboto",
+				"Ubuntu",
+				"Cantarell",
+				"Noto Sans",
+				"sans-serif"
+			]
+		},
+		"body": {
+			"value": [
+				"Work SansVariable",
+				"system-ui",
+				"-apple-system",
+				"Segoe UI",
+				"Roboto",
+				"Ubuntu",
+				"Cantarell",
+				"Noto Sans",
+				"sans-serif"
+			]
+		},
+		"mono": {
+			"value": [
+				"JetBrains MonoVariable",
+				"Dank Mono",
+				"Operator Mono",
+				"Inconsolata",
+				"Fira Mono",
+				"ui-monospace",
+				"SF Mono",
+				"Monaco",
+				"Droid Sans Mono",
+				"Source Code Pro",
+				"monospace"
+			]
+		}
+	}
+}

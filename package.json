@@ -1,24 +1,34 @@
 {
-  "name": "@example/minimal",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "astro": "^1.1.5"
-  },
-  "devDependencies": {
-    "@astrojs/image": "^0.5.0",
-    "@astrojs/prefetch": "^0.0.7",
-    "@astrojs/sitemap": "^1.0.0",
-    "@astrojs/svelte": "^1.0.0",
-    "@fontsource/nunito": "^4.5.10",
-    "normalize.css": "^8.0.1",
-    "svelte": "^3.46.4"
-  }
+	"name": "@example/minimal",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"dependencies": {
+		"@astrojs/image": "^0.7.0",
+		"@astrojs/tailwind": "^1.0.0",
+		"@astrojs/vercel": "^1.0.2",
+		"@tokencss/astro": "^0.0.4",
+		"astro": "^1.2.7",
+		"autoprefixer": "^10.4.11",
+		"normalize.css": "^8.0.1",
+		"postcss-easing-gradients": "^3.0.1",
+		"postcss-nesting": "^10.2.0"
+	},
+	"devDependencies": {
+		"@fontsource/jetbrains-mono": "^4.5.10",
+		"@fontsource/raleway": "^4.5.10",
+		"@fontsource/work-sans": "^4.5.12",
+		"@mavrin/stylelint-declaration-use-css-custom-properties": "github:mavrin/stylelint-declaration-use-css-custom-properties",
+		"postcss-dark-theme-class": "^0.7.3",
+		"react-icons": "^4.4.0",
+		"stylelint": "^14.12.0",
+		"stylelint-config-prettier": "^9.0.3",
+		"stylelint-config-standard": "^28.0.0"
+	}
 }

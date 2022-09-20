@@ -1,0 +1,47 @@
+/****** Elad Shechter's RESET *******/
+/*** box sizing border-box for all elements ***/
+:where(*, *::before, *::after) {
+	box-sizing: border-box;
+	font-family: body;
+}
+:where(a) {
+	text-decoration: none;
+	color: inherit;
+	cursor: pointer;
+}
+:where(button) {
+	background-color: transparent;
+	color: inherit;
+	border-width: 0;
+	padding: 0;
+	cursor: pointer;
+}
+:where(figure) {
+	margin: 0;
+}
+:where(input::-moz-focus-inner) {
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+:where(ul, ol, dd) {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+:where(h1, h2, h3, h4, h5, h6) {
+	margin: 0;
+	font-size: inherit;
+	font-weight: inherit;
+}
+:where(p) {
+	margin: 0;
+}
+:where(cite) {
+	font-style: normal;
+}
+:where(fieldset) {
+	border-width: 0;
+	padding: 0;
+	margin: 0;
+}

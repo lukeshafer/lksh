@@ -1,0 +1,118 @@
+---
+// COMPONENTS
+import NavBar from '../components/nav/NavBar.astro';
+import NavItem from '../components/nav/NavItem.astro';
+import Header from '../components/header/Header.astro';
+
+// FONTS
+import '@fontsource/raleway/variable.css';
+import '@fontsource/work-sans/variable.css';
+import '@fontsource/jetbrains-mono/variable.css';
+
+// STYLES
+// import "normalize.css"
+import '../styles/reset.local.css'
+import Logo from '../components/header/Logo.astro';
+
+// PROPS
+export interface Props {
+	currentPage: string;
+}
+
+const { currentPage } = Astro.props as Props;
+
+// DATA
+// Information for Navbar Links
+const navPages = [
+	{ name: 'Home', href: '/' },
+	{ name: 'Portfolio', href: '/portfolio' },
+	{ name: 'Resume', href: '/resume' },
+	{ name: 'Blog', href: '/blog' },
+	{ name: 'About Me', href: '/about' },
+	{ name: 'Links', href: '/links' },
+];
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Luke Shafer</title>
+	</head>
+	<body>
+		<header>
+			<Logo />
+		</header>
+		<NavBar>
+			{
+				navPages.map(({ name, href }) => (
+					<NavItem href="/" active={href === currentPage}>
+						{name}
+					</NavItem>
+				))
+			}
+		</NavBar>
+		<main>
+			<slot />
+		</main>
+		<style media="screen">
+			body {
+				/* SIZE */
+				height: screen;
+				width: screen;
+				box-sizing: border-box;
+				padding: 3xl 2xl;
+				overflow-x: hidden;
+
+				/* LAYOUT */
+				display: grid;
+				grid-template-rows: 3rem 1fr;
+				grid-template-columns: 1fr 15rem;
+				grid-auto-flow: dense;
+				gap: 2xl;
+
+				/* LIGHT MODE (default) */
+				background: radial-gradient(
+					circle at left bottom,
+					blue.2 0%,
+					slate.0 50%,
+					white 100%
+				);
+				color: slate.9;
+
+				/* DARK MODE */
+				@media (prefers-color-scheme: dark) {
+					background: radial-gradient(
+						circle at left bottom,
+						slate.9 0%,
+						black 100%
+					);
+					color: slate.0;
+				}
+			}
+
+			header {
+				/* LAYOUT */
+				grid-column: span 2;
+			}
+
+			main {
+				/* SIZE */
+				width: full;
+				height: full;
+
+				/* LAYOUT */
+				grid-column: 1;
+				grid-row: 2;
+
+				/* LIGHT MODE */
+				color: gray.9;
+				@media (prefers-color-scheme: dark) {
+					color: gray.1;
+				}
+			}
+		</style>
+	</body>
+</html>

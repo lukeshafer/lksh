@@ -1,22 +1,43 @@
 ---
-import MainHead from '$components/MainHead.astro';
-import MainLayout from '$layouts/MainLayout.astro';
-import Card from '$components/Card.astro';
-import Hero from '$components/Landing/Hero.astro';
-
-// import Background from '../components/Background/Background.svelte';
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<MainLayout theme="vibe">
-	<MainHead slot="head" />
+<BaseLayout currentPage="/">
+	<div>
+		<h1>
+			Hi, I'm <span>Luke Shafer</span>
+		</h1>
+		<h2>And I'm a Javascript Developer</h2>
+	</div>
+</BaseLayout>
 
-	<Hero>
-		<Card>
-			<h1>Luke Shafer</h1>
-		</Card>
-	</Hero>
-</MainLayout>
+<style media="screen">
+	div {
+		/* LAYOUT */
+		display: flex;
+		flex-flow: column;
+		justify-content: center;
+		height: 100%;
+		padding-left: 6xl;
+	}
 
-<style>
+	h1 {
+		font-family: display;
+		font-size: 7xl;
+		font-weight: normal;
 
+		& span {
+			display: inline-block;
+			color: cyan.8;
+			@media (prefers-color-scheme: dark) {
+				color: cyan.3;
+			}
+		}
+	}
+
+	h2 {
+		font-family: body;
+		font-size: 4xl;
+		font-weight: light;
+	}
 </style>

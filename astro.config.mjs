@@ -1,11 +1,12 @@
 import { defineConfig } from 'astro/config';
-import prefetch from "@astrojs/prefetch";
-import svelte from "@astrojs/svelte";
-import sitemap from "@astrojs/sitemap";
+import vercel from '@astrojs/vercel/serverless';
+import image from '@astrojs/image';
 
-import image from "@astrojs/image";
+import tokencss from '@tokencss/astro';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [prefetch(), svelte(), sitemap(), image()]
+	output: 'server',
+	adapter: vercel(),
+	integrations: [image(), tokencss()],
 });

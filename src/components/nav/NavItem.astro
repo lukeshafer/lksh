@@ -1,0 +1,14 @@
+---
+import Caret from './Caret.astro';
+
+export interface Props {
+  href: URL | string;
+  active?: boolean;
+}
+
+const { href, active } = Astro.props as Props
+---
+
+<li>
+	<a href={href} class={`hover:text-sky-900 dark:hover:text-sky-50 text-gray-900 dark:text-gray-50 font-mono ${active ? "font-semibold" : "font-light"}`}>{active ? <Caret/> : ""}<slot/></a>
+</li>

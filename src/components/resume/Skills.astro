@@ -1,0 +1,23 @@
+---
+const skills = [
+	'Svelte',
+	'TypeScript',
+	'React',
+	'CSS',
+	'Git',
+	'Sass',
+	'Node.js',
+	'Astro',
+	'Neovim',
+	'HTML',
+	'PostCSS',
+	'Python',
+]
+---
+
+<h2>Top Skills and Favorite Technology</h2>
+<ul>
+  {skills.map((value) => 
+    <li>{value}</li>
+  )}
+</ul>

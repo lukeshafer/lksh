@@ -1,0 +1,67 @@
+---
+const projects = [
+	{
+		name: "Fridge Magnets",
+		short: "Multiplayer party game",
+		repo: "fridgemagnets",
+		url: "fridgemagnets.dev.lukeshafer.com",
+		tech: [
+			"TypeScript", "SvelteKit", "Svelte", "Node.js", "Colyseus", "Websockets"
+		],
+		feats: [
+			"Built a live, online multiplayer party game on my own",
+			"Solved state management challenges by pairing Svelte stores with the Colyseus backend framework",
+			"Wrote custom, DOM-based UI rather than Canvas-based"
+		]
+	},{
+		name: "Do Good Collective",
+		short: "Small, fullstack website",
+		repo: "dogood",
+		url: "dogoodcollective.net",
+		tech: [
+			"SvelteKit", "TypeScript", "Strapi CMS", "Node.js", "PostgreSQL",
+		],
+		feats: [
+			"Led a two-person team to build a fullstack site for a mutual aid organization",
+			"Used SvelteKit's fullstack features to connect to the Strapi backend securely",
+			"Created unique design with accessible functionality",
+		],
+	},{
+		name: "Toxic Man, or 'ieatgarbage69.420'",
+		short: "Please forgive me", // I'm so sorry
+		repo: "toxicManBot", // the casing on these repos is all over the place huh
+		url: "github.com/lukeshafer/toxicManBot", // no actual URL unfortunately
+		tech: [
+			"Node.js", "Discord.js", "TypeScript",
+		],
+		feats: [
+			"Built a goofy, fun bot for a Discord community I am part of",
+			"Originally in outdated JS framework (discord.io); Re-wrote the bot from scratch in TypeScript with modern APIs",
+			"He is my son ♥️"
+		],
+	}
+]
+---
+
+<ul>
+  {projects.map(({name, short, repo, url, tech, feats}) =>
+    <li>
+      <h3>{name}</h3>
+      <p>{short}</p>
+      <a href={`https://github.com/lukeshafer/${repo}`}>Github Repository</a>
+      <a href={`https://${url}`}>Website</a>
+      <h4>Tech I used</h4>
+      <ul>
+        {tech.map((value) =>
+          <li>{value}</li>
+        )}
+      </ul>
+      <h4>Accomplishments</h4>
+      <ul>
+        {feats.map((value) => 
+          <li>{value}</li>
+        )}
+      </ul>
+    </li>
+  )}
+</ul>

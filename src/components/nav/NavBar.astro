@@ -1,0 +1,75 @@
+<div>
+	<button hidden tabindex='-1'></button>
+	<nav>
+	  <ul >
+	  	<slot></slot>
+	  </ul>
+	</nav>
+</div>
+
+<style>
+	
+	button {
+		display: block;
+		background: transparent;
+		height: md;
+		padding: 0 sm;
+		display: flex;
+		flex-direction: column;
+		gap: xs;
+		/* width: md; */
+
+		@media (min-width: 1024px) {
+			/* display: none; */
+		}
+
+		&::after, 
+		&::before {
+			background-color: black;
+			@media (prefers-color-scheme: dark) { background-color: white }
+			content: "";
+			display: inline-block;
+			width: lg;
+			height: 2xs;
+			color: inherit;
+			transition: transform 400ms;
+			transition-timing-function: circular.out;
+		}
+
+		&:focus::after {
+			transform: rotate(45deg) translateY(-0.5rem);
+		}
+
+		&:focus::before {
+			transform: rotate(-45deg) translateY(0.5rem);
+		}
+
+	}
+
+	div {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		gap: 4xl;
+	}
+
+	nav {
+		position: relative;
+		right: -10rem;
+		transition: transform 400ms;
+		/* transition-delay: 100ms; */
+		transition-timing-function: quintic.out;
+	}
+	
+	button:focus + nav,
+	nav:focus-within {
+		transform: translateX(-10rem);
+	}
+
+	ul {
+		display: flex;
+		flex-direction: column;
+		gap: xl;
+	}
+
+</style>
