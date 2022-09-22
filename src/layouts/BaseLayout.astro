@@ -2,7 +2,7 @@
 // COMPONENTS
 import NavBar from '../components/nav/NavBar.astro';
 import NavItem from '../components/nav/NavItem.astro';
-import Header from '../components/header/Header.astro';
+import Logo from '../components/header/Logo.astro';
 
 // FONTS
 import '@fontsource/raleway/variable.css';
@@ -10,16 +10,8 @@ import '@fontsource/work-sans/variable.css';
 import '@fontsource/jetbrains-mono/variable.css';
 
 // STYLES
-// import "normalize.css"
-import '../styles/reset.local.css'
-import Logo from '../components/header/Logo.astro';
-
-// PROPS
-export interface Props {
-	currentPage: string;
-}
-
-const { currentPage } = Astro.props as Props;
+import '../styles/better-normalize.css';
+import '../styles/reset.local.css';
 
 // DATA
 // Information for Navbar Links
@@ -33,7 +25,7 @@ const navPages = [
 ];
 ---
 
-<html lang="en">
+<html lang="en" style="overflow-x:hidden">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -42,34 +34,59 @@ const navPages = [
 		<title>Luke Shafer</title>
 	</head>
 	<body>
-		<header>
-			<Logo />
-		</header>
-		<NavBar>
-			{
-				navPages.map(({ name, href }) => (
-					<NavItem href="/" active={href === currentPage}>
-						{name}
-					</NavItem>
-				))
-			}
-		</NavBar>
-		<main>
-			<slot />
-		</main>
+		<div>
+			<header>
+				<Logo />
+				<NavBar>
+					{
+						navPages.map(({ name, href }) => (
+							<NavItem href={href} active={href === Astro.url.pathname}>
+								{name}
+							</NavItem>
+						))
+					}
+				</NavBar>
+			</header>
+			<main>
+				<slot />
+			</main>
+		</div>
 		<style media="screen">
+			:root {
+				font-size: clamp(100%, 0.8vw + 0.8rem, 180%);
+			}
+
 			body {
+				background-color: white;
+				@media (prefers-color-scheme: dark) {
+					background-color: black;
+				}
+				font-weight: light;
+			}
+			div {
 				/* SIZE */
 				height: screen;
 				width: screen;
 				box-sizing: border-box;
-				padding: 3xl 2xl;
+				overflow-y: scroll;
 				overflow-x: hidden;
+
+				padding: md lg;
+				@media md {
+					padding: lg xl;
+				}
+				@media lg {
+					padding: 3xl 4xl;
+				}
 
 				/* LAYOUT */
 				display: grid;
+				grid-template-columns: 3fr 1fr;
 				grid-template-rows: 3rem 1fr;
-				grid-template-columns: 1fr 15rem;
+
+				@media (min-width: 768px) {
+					grid-template-columns: 1fr 5rem;
+				}
 				grid-auto-flow: dense;
 				gap: 2xl;
 
@@ -96,6 +113,11 @@ const navPages = [
 			header {
 				/* LAYOUT */
 				grid-column: span 2;
+
+				display: flex;
+				position: relative;
+				justify-content: space-between;
+				align-items: center;
 			}
 
 			main {
@@ -104,10 +126,17 @@ const navPages = [
 				height: full;
 
 				/* LAYOUT */
-				grid-column: 1;
+				grid-column: span 2;
+				@media (min-width: 768px) {
+					grid-column: 1;
+				}
 				grid-row: 2;
 
-				/* LIGHT MODE */
+				/* INNER LAYOUT */
+				display: flex;
+				align-items: center;
+
+				/* COLORS */
 				color: gray.9;
 				@media (prefers-color-scheme: dark) {
 					color: gray.1;

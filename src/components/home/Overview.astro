@@ -1,0 +1,78 @@
+<section>
+	<h2>Quick Overview</h2>
+	<div>
+		<h3>Who am I?</h3>
+		<p>
+			I am a developer who loves building tools and sites. I try to bring a <strong>
+				creative touch
+			</strong> to my projects, especially websites. I get excited about new technology
+			and I'm always trying to create new things!
+		</p>
+	</div>
+	<div>
+		<h3>My favorite dev tools</h3>
+		<ul>
+			<li>React</li>
+			<li>TypeScript</li>
+			<li>Svelte</li>
+			<li>Astro</li>
+			<li>PostCSS</li>
+			<li>Neovim</li>
+			<li>Node.js</li>
+		</ul>
+	</div>
+</section>
+
+<style>
+	section {
+		/* LAYOUT */
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: center;
+		gap: 2xl xs;
+	}
+
+	h2 {
+		/* LAYOUT */
+		width: 100%;
+		text-align: center;
+
+		/* FONT */
+		font-size: 4xl;
+		font-family: display;
+	}
+
+	div {
+		min-width: 45%;
+		width: 20rem;
+
+		/* LAYOUT */
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: lg;
+	}
+
+	h3 {
+		font-size: xl;
+		text-align: center;
+
+		color: cyan.9;
+		@media (prefers-color-scheme: dark) {
+			color: cyan.2;
+		}
+	}
+
+	p {
+		width: 70%;
+		font-size: sm;
+
+		& strong {
+			font-weight: inherit;
+			color: cyan.9;
+			@media (prefers-color-scheme: dark) {
+				color: cyan.2;
+			}
+		}
+	}
+</style>

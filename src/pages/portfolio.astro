@@ -1,0 +1,106 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { projects } from '../data/projects';
+---
+
+<BaseLayout>
+	<div>
+		<h1>My Portolio</h1>
+		<ul>
+			{
+				projects.map((p) => (
+					<li>
+						<h2>{p.name}</h2>
+						<time datetime={p.year}>{p.year}</time>
+						{p.url ? <a href={p.url}>Website</a> : ''}
+						{p.repo ? <a href={p.repo}>Repo</a> : ''}
+						<ul>
+							<li class="category">{p.category}</li>
+							{p.tags.map((t) => (
+								<li>{t}</li>
+							))}
+						</ul>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</BaseLayout>
+
+<style>
+	div {
+		width: 100%;
+	}
+
+	h1 {
+		/* TEXT STYLE*/
+		font-size: 5xl;
+		font-family: display;
+		text-align: center;
+	}
+
+	div > ul {
+		display: flex;
+		flex-direction: column;
+		gap: 3xl;
+
+		& > li {
+			display: flex;
+			flex-flow: row wrap;
+			align-items: center;
+			gap: 2xs lg;
+		}
+	}
+
+	h2 {
+		/* TEXT STYLE */
+		font-size: 4xl;
+		font-family: display;
+		font-weight: light;
+	}
+
+	time {
+		font-size: 3xl;
+		color: cyan.4;
+		@media (prefers-color-scheme: dark) {
+			color: cyan.8;
+		}
+	}
+
+	a {
+		color: slate.3;
+		@media (prefers-color-scheme: dark) {
+			color: slate.7;
+		}
+
+		&:hover {
+			color: inherit !important;
+		}
+	}
+
+	li > ul {
+		width: 100%;
+		display: flex;
+		gap: sm;
+
+		& li {
+			font-family: mono;
+			font-size: xs;
+
+			padding: 2xs xs;
+			background-color: slate.1;
+			@media (prefers-color-scheme: dark) {
+				background-color: slate.7;
+			}
+
+			&.category {
+				background-color: cyan.8;
+				color: slate.0;
+				@media (prefers-color-scheme: dark) {
+					background-color: cyan.3;
+					color: slate.9;
+				}
+			}
+		}
+	}
+</style>

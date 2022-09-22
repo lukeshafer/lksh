@@ -2,13 +2,39 @@
 import Caret from './Caret.astro';
 
 export interface Props {
-  href: URL | string;
-  active?: boolean;
+	href: URL | string;
+	active?: boolean;
 }
 
-const { href, active } = Astro.props as Props
+const { href, active } = Astro.props as Props;
 ---
 
 <li>
-	<a href={href} class={`hover:text-sky-900 dark:hover:text-sky-50 text-gray-900 dark:text-gray-50 font-mono ${active ? "font-semibold" : "font-light"}`}>{active ? <Caret/> : ""}<slot/></a>
+	<a href={href} class={active ? 'active' : ''}
+		>{active ? <Caret /> : ''}<slot />
+	</a>
 </li>
+
+<style>
+	a {
+		/* COLORS */
+		color: inherit;
+		&:hover {
+			color: blue.9;
+			@media (prefers-color-scheme: dark) {
+				color: blue.1;
+			}
+		}
+
+		/* FONT */
+		font-family: mono;
+		font-weight: light;
+		&.active {
+			font-weight: semibold;
+		}
+		font-size: md;
+		@media (min-width: 768px) {
+			font-size: sm;
+		}
+	}
+</style>

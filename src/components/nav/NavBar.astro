@@ -1,75 +1,145 @@
-<div>
-	<button hidden tabindex='-1'></button>
-	<nav>
-	  <ul >
-	  	<slot></slot>
-	  </ul>
-	</nav>
-</div>
+<script is:inline>
+	let isActive = false;
+
+	/** @param element {HTMLButtonElement} */
+	function handleClick(element) {
+		/** @type {HTMLElement} */
+		const nav = document.querySelector('nav');
+
+		/** @type {NodeListOf<HTMLAnchorElement>} */
+		const navLinks = document.querySelectorAll('nav a');
+
+		if (isActive) document.activeElement.blur();
+		else
+			nav.firstElementChild.firstElementChild.firstElementChild.focus({
+				focusVisible: false,
+			});
+
+		isActive = !isActive;
+	}
+
+	document.addEventListener('keydown', (event) => {
+		if (event.code === 'Escape') document.activeElement.blur();
+	});
+</script>
+
+<nav>
+	<ul>
+		<slot />
+	</ul>
+</nav>
+<button hidden onclick="handleClick(this)" tabindex="-1"></button>
 
 <style>
-	
 	button {
 		display: block;
 		background: transparent;
 		height: md;
-		padding: 0 sm;
 		display: flex;
 		flex-direction: column;
 		gap: xs;
-		/* width: md; */
+		z-index: 1;
 
-		@media (min-width: 1024px) {
-			/* display: none; */
+		/* FIXME: replace with Token */
+		@media (min-width: 768px) {
+			display: none;
 		}
 
-		&::after, 
+		&::after,
 		&::before {
 			background-color: black;
-			@media (prefers-color-scheme: dark) { background-color: white }
-			content: "";
+			@media (prefers-color-scheme: dark) {
+				background-color: white;
+			}
+			content: '';
 			display: inline-block;
 			width: lg;
 			height: 2xs;
 			color: inherit;
-			transition: transform 400ms;
-			transition-timing-function: circular.out;
+			transition: transform 200ms;
+			transition-timing-function: quartic.out;
 		}
-
-		&:focus::after {
-			transform: rotate(45deg) translateY(-0.5rem);
-		}
-
-		&:focus::before {
-			transform: rotate(-45deg) translateY(0.5rem);
-		}
-
-	}
-
-	div {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-end;
-		gap: 4xl;
 	}
 
 	nav {
-		position: relative;
-		right: -10rem;
-		transition: transform 400ms;
-		/* transition-delay: 100ms; */
-		transition-timing-function: quintic.out;
+		/* POSITION */
+		position: fixed;
+		top: -100vw;
+		left: 0;
+		right: 0;
+
+		/* LAYOUT */
+		height: 60%;
+		padding: 5xl 2xl;
+
+		/* ANIMATION */
+		transition: opacity 200ms, transform 500ms;
+		transition-timing-function: quintic.in-out, sine.in;
+
+		/* OTHER DISPLAY */
+		opacity: 0;
+		background-color: transparent;
+		background: linear-gradient(to bottom, slate.2 20%, transparent);
+
+		/* FIXME: replace with Token */
+		@media (prefers-color-scheme: dark) {
+			background: linear-gradient(
+				to bottom,
+				slate.9 20%,
+				rgba(slate.9, 0.8) 90%,
+				rgba(slate.9, 0)
+			);
+		}
+
+		/* FIXME: replace with Token */
+		@media (min-width: 768px) {
+			/* LAYOUT */
+			top: 0;
+			left: auto;
+			height: 100%;
+			padding: 0 2xl;
+
+			/* CENTER UL */
+			display: flex;
+			align-items: center;
+
+			/* COLOR */
+			opacity: 1;
+			background-color: none;
+			/* FIXME: IMPORTANT IS BAD */
+			background: transparent !important;
+		}
 	}
-	
-	button:focus + nav,
+
 	nav:focus-within {
-		transform: translateX(-10rem);
+		transform: translateY(100vw);
+		transition: opacity 300ms, transform 300ms;
+		transition-timing-function: quintic.in-out, exponential.out;
+		/* transition: transform 300ms; */
+		opacity: 1;
+
+		@media (min-width: 768px) {
+			transform: none;
+		}
+
+		& + button {
+			/* pointer-events: none; */
+
+			&::after {
+				cursor: pointer;
+				transform: rotate(45deg) translateY(-0.5rem);
+			}
+			&::before {
+				cursor: pointer;
+				transform: rotate(-45deg) translateY(0.5rem);
+			}
+		}
 	}
 
 	ul {
 		display: flex;
 		flex-direction: column;
-		gap: xl;
+		gap: 3xl;
+		align-items: flex-end;
 	}
-
 </style>
