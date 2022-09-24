@@ -2,16 +2,20 @@
 import Caret from './Caret.astro';
 
 export interface Props {
-	href: URL | string;
+	href: string;
 	active?: boolean;
+	from?: boolean;
 }
 
-const { href, active } = Astro.props as Props;
+const { href, active, from } = Astro.props as Props;
+
+const activeClass = active ? 'active' : '';
+const fromClass = from ? 'from' : '';
 ---
 
 <li>
-	<a href={href} class={active ? 'active' : ''}
-		>{active ? <Caret /> : ''}<slot />
+	<a href={href} class={`${activeClass} ${fromClass}`} rel="prefetch"
+		><Caret active={activeClass} from={fromClass} /><slot />
 	</a>
 </li>
 
@@ -31,10 +35,24 @@ const { href, active } = Astro.props as Props;
 		font-weight: light;
 		&.active {
 			font-weight: semibold;
+			animation: activate 200ms forwards;
 		}
 		font-size: md;
 		@media (min-width: 768px) {
 			font-size: sm;
+		}
+
+		&.from {
+			animation: activate 200ms reverse forwards;
+		}
+	}
+
+	@keyframes activate {
+		0% {
+			font-weight: 300;
+		}
+		100% {
+			font-weight: 600;
 		}
 	}
 </style>

@@ -64,7 +64,7 @@
 	nav {
 		/* POSITION */
 		position: fixed;
-		top: -100vw;
+		top: -100vh;
 		left: 0;
 		right: 0;
 
@@ -74,12 +74,17 @@
 
 		/* ANIMATION */
 		transition: opacity 200ms, transform 500ms;
-		transition-timing-function: quintic.in-out, sine.in;
+		transition-timing-function: exponential.out, sine.in;
 
 		/* OTHER DISPLAY */
 		opacity: 0;
 		background-color: transparent;
-		background: linear-gradient(to bottom, slate.2 20%, transparent);
+		background: linear-gradient(
+			to bottom,
+			cyan.0 20%,
+			rgba(cyan.0, 0.8) 90%,
+			rgba(cyan.0, 0)
+		);
 
 		/* FIXME: replace with Token */
 		@media (prefers-color-scheme: dark) {
@@ -96,6 +101,7 @@
 			/* LAYOUT */
 			top: 0;
 			left: auto;
+			right: xs;
 			height: 100%;
 			padding: 0 2xl;
 
@@ -112,11 +118,12 @@
 	}
 
 	nav:focus-within {
-		transform: translateY(100vw);
-		transition: opacity 300ms, transform 300ms;
-		transition-timing-function: quintic.in-out, exponential.out;
+		transform: translateY(100vh);
+		transition: opacity 200ms, transform 200ms;
+		transition-timing-function: cubic.in, exponential.out;
 		/* transition: transform 300ms; */
 		opacity: 1;
+		z-index: 1;
 
 		@media (min-width: 768px) {
 			transform: none;

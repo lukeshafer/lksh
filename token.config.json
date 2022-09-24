@@ -32,9 +32,22 @@
 				"sans-serif"
 			]
 		},
-		"body": {
+		"subheading": {
 			"value": [
 				"Work SansVariable",
+				"system-ui",
+				"-apple-system",
+				"Segoe UI",
+				"Roboto",
+				"Ubuntu",
+				"Cantarell",
+				"Noto Sans",
+				"sans-serif"
+			]
+		},
+		"body": {
+			"value": [
+				"Martel Sans",
 				"system-ui",
 				"-apple-system",
 				"Segoe UI",

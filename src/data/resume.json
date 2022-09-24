@@ -1,0 +1,179 @@
+{
+	"$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+	"basics": {
+		"name": "Luke Shafer",
+		"label": "Full-Stack Web Developer",
+		"image": "https://avatars.githubusercontent.com/u/35978568",
+		"email": "hello@lukeshafer.com",
+		"phone": "(614) 585-3382",
+		"url": "https://lukeshafer.com",
+		"summary": "Hi! I'm a web developer with over 5 years of experience in tech. I've worked across in all sorts of corners of tech - developing desktop software, frontend site code, and backend server code, as well as IT support and customer implementations.",
+		"location": {
+			"address": "",
+			"postalCode": "",
+			"city": "Columbus",
+			"countryCode": "US",
+			"region": "Ohio"
+		},
+		"profiles": [
+			{
+				"network": "GitHub",
+				"username": "lukeshafer",
+				"url": "https://github.com/lukeshafer"
+			},
+			{
+				"network": "LinkedIn",
+				"username": "lukealanshafer",
+				"url": "https://www.linkedin.com/in/lukealanshafer/"
+			},
+			{
+				"network": "Instagram",
+				"username": "luke.web.design",
+				"url": "https://instagram.com/luke.web.design?igshid=YmMyMTA2M2Y="
+			},
+			{
+				"network": "Twitter",
+				"username": "lksh_dev",
+				"url": "https://twitter.com/lksh_dev"
+			}
+		]
+	},
+	"work": [
+		{
+			"name": "Luke Shafer Web Design",
+			"location": "Columbus, OH",
+			"description": "Self-owned web development and design freelance business",
+			"position": "Web Developer",
+			"url": "https://lukeshafer.com",
+			"startDate": "2022-03-20",
+			"endDate": "",
+			"summary": "Luke Shafer Web Design is a web design and development company based in Columbus, Ohio. I work with clients to create beautiful, accessible, and modern websites and web applications.",
+			"highlights": [
+				"Built 4 full client websites, 2 Discord bots, and a game in under 6 months"
+			],
+			"technologies": [
+				"JavaScript",
+				"Node.js",
+				"React",
+				"Svelte",
+				"TypeScript",
+				"Astro",
+				"Colyseus",
+				"Strapi CMS",
+				"WordPress"
+			]
+		},
+		{
+			"name": "TrueCommerce, Inc",
+			"location": "Columbus, OH",
+			"description": "EDI Network Provider",
+			"position": "Implementation Specialist",
+			"url": "https://truecommerce.com",
+			"startDate": "2021-01-25",
+			"endDate": "2022-08-30",
+			"summary": "Worked as project manager for implementation projects, intregrating customer ERP software with the TrueCommerce EDI network.",
+			"highlights": [
+				"Led over 100 implementation projects and cases to completion",
+				"Partnered with customers to build business-driven solutions"
+			],
+			"technologies": [
+				"XML",
+				"XPath",
+				"ODLF",
+				"Microsoft Dynamics",
+				"ERP Integration",
+				"NetSuite"
+			]
+		},
+		{
+			"name": "CodeWizardsHQ",
+			"location": "Remote",
+			"description": "Coding Education Business",
+			"position": "Online Coding Instructor",
+			"url": "https://codewizardshq.com",
+			"startDate": "2020-09",
+			"endDate": "2021-02",
+			"summary": "Led curriculum-based courses online to students in grades 3-12.",
+			"highlights": [
+				"Taught 5 simultaneous 12-week courses to students with no prior experience"
+			],
+			"technologies": ["Python", "Scratch", "JavaScript"]
+		}
+	],
+	"volunteer": [
+		{
+			"organization": "Guardians of Heart",
+			"position": "Co-Founder / Director of Information Technology",
+			"url": "https://guardiansofheart.org",
+			"startDate": "2020-06",
+			"endDate": "",
+			"summary": "Co-founded a character volunteer organization, which brings famous and beloved characters to children and families in Central Ohio.",
+			"highlights": ["Built organization website"]
+		}
+	],
+	"education": [
+		{
+			"institution": "University of Cincinnati",
+			"url": "http://www.uc.edu",
+			"area": "Computer Science",
+			"studyType": "Bachelor of Science",
+			"startDate": "2013-08",
+			"endDate": "2019-12",
+			"score": "",
+			"courses": []
+		}
+	],
+	"awards": [],
+	"publications": [],
+	"skills": [
+		{
+			"name": "Frontend Development",
+			"keywords": ["HTML", "CSS", "Javascript", "React", "Astro", "Svelte"]
+		},
+		{
+			"name": "Backend Development",
+			"keywords": ["Node.js", "TypeScript", "Python"]
+		}
+	],
+	"languages": [
+		{
+			"language": "English",
+			"fluency": "Native speaker"
+		}
+	],
+	"interests": [],
+	"references": [
+		{
+			"name": "Leonard Mack",
+			"reference": "I had the pleasure of hiring and managing Luke during my time at True Commerce. \n\nLuke was a consummate professional at all times. His work ethic was impeccable and Luke consistently gave 100% to his work and the customers he served. He never hesitated when asked to complete a task. He was a critical member of the team's success. \n\nHe is a reliable professional, and during stressful times was a positive influence on the team. When things needed to get done, he was always willing to dive in and do the work.I"
+		}
+	],
+	"projects": [
+		{
+			"name": "Fridge Magnets",
+			"description": "Online party/word game, based on the card game Ransom Notes",
+			"highlights": [],
+			"keywords": ["Node.js", "Game", "TypeScript", "SvelteKit"],
+			"startDate": "2022-07",
+			"endDate": "2022-09",
+			"url": "https://github.com/lukeshafer/fridgemagnets",
+			"roles": ["Creator", "Developer"],
+			"type": "application"
+		},
+		{
+			"name": "Luke Shafer Web Design",
+			"description": "Statically generated business site using SvelteKit",
+			"highlights": ["100 on Lighthour Performance and SEO"],
+			"keywords": ["SvelteKit", "TypeScript", "Serverless"],
+			"startDate": "2022-04",
+			"url": "https://github.com/lukeshafer/fridgemagnets",
+			"roles": ["Creator", "Developer"],
+			"type": "application"
+		}
+	],
+	"meta": {
+		"canonical": "https://raw.githubusercontent.com/jsonresume/resume-schema/master/resume.json",
+		"version": "v1.0.0",
+		"lastModified": "2017-12-24T15:53:00"
+	}
+}

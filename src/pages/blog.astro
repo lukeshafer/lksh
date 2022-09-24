@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const posts = await Astro.glob('./blog/*.md');
+---
+
+<BaseLayout title="Blog | Luke Shafer">
+	<div>
+		<h1>My blog</h1>
+		<p>I write the things on my mind sometimes!</p>
+		{
+			posts.map(({ frontmatter }) => (
+				<>
+					<h2>{frontmatter.title}</h2>
+					<a href={frontmatter.url}>Read</a>
+				</>
+			))
+		}
+	</div>
+</BaseLayout>

@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="404 | Luke Shafer">
+	<div>
+		<h1>404</h1>
+		<h2>Page {Astro.url.pathname} not found!</h2>
+	</div>
+</BaseLayout>
+
+<style>
+	div {
+		height: 50%;
+		text-align: center;
+	}
+
+	h2 {
+		font-size: 4xl;
+	}
+
+	h1 {
+		font-size: 7xl;
+		font-family: mono;
+		padding: xl;
+	}
+</style>

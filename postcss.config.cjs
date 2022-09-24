@@ -3,6 +3,6 @@ module.exports = {
 		require('postcss-nesting'),
 		require('autoprefixer'),
 		require('postcss-dark-theme-class'),
-		require('postcss-easing-gradients'),
+		require('css-has-pseudo'),
 	],
 };

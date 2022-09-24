@@ -1,1 +1,40 @@
-<span aria-hidden="true">{"> "}</span>
+---
+export interface Props {
+	active?: string;
+	from?: string;
+}
+
+const { active, from } = Astro.props as Props;
+
+const className = active || from || '';
+---
+
+<span class={className} hidden>{'>'}</span>
+
+<style>
+	@keyframes slideIn {
+		0% {
+			transform: translateX(2rem);
+			opacity: 0;
+		}
+		100% {
+			transform: translateX(0);
+			opacity: 1;
+		}
+	}
+
+	span {
+		margin-right: 2xs;
+		opacity: 0;
+
+		&.active {
+			display: inline-block;
+			animation: slideIn 400ms forwards cubic.out;
+			opacity: 1;
+		}
+		&.from {
+			display: inline-block;
+			animation: slideIn 400ms reverse forwards sine.in;
+		}
+	}
+</style>

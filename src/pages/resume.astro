@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from '@astrojs/image/components';
+import Projects from '../components/portfolio/Projects.astro';
+import Jobs from '../components/resume/Jobs.astro';
+
+import resume from '../data/resume.json';
+---
+
+<!-- EDIT DATA IN resume.json -->
+<BaseLayout title="Resume | Luke Shafer">
+	<div>
+		<header>
+			<h1>{resume.basics.name}</h1>
+			<h2>{resume.basics.label}</h2>
+			<Image
+				src={resume.basics.image}
+				alt="My Headshot"
+				aspectRatio={1}
+				width={200}
+			/>
+		</header>
+		<main>
+			<section>
+				<h3>Profile</h3>
+				<p>{resume.basics.summary}</p>
+			</section>
+			<section>
+				<h3>Experience</h3>
+				<Jobs jobs={resume.work} />
+			</section>
+			<Projects />
+		</main>
+	</div>
+</BaseLayout>
+
+<style>
+	div {
+		max-width: 37rem;
+		margin: auto;
+
+		display: grid;
+		grid-template-columns: 2fr 5fr;
+		grid-template-rows: repeat(2, min-content);
+		grid-auto-flow: row reverse;
+	}
+
+	header {
+		grid-column: span 2;
+
+		/* GRID */
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: repeat(2, min-content);
+		grid-auto-flow: column;
+		justify-content: space-between;
+		align-items: end;
+		row-gap: 2xs;
+
+		--border: 5px solid cyan.7;
+		@media (prefers-color-scheme: dark) {
+			--border: 5px solid cyan.4;
+		}
+	}
+
+	h1 {
+		font-family: display;
+		font-size: 3xl;
+		font-weight: medium;
+		letter-spacing: 1px;
+	}
+
+	h2 {
+		align-self: start;
+		grid-column: span 2;
+		width: 100%;
+		font-size: lg;
+
+		/* DIVIDER-LINE */
+		border-top: var(--border);
+		padding-top: xs;
+	}
+
+	img {
+		grid-row: span 2;
+		justify-self: end;
+		border: var(--border);
+	}
+
+	main {
+		grid-column: 2;
+	}
+
+	section {
+		margin-bottom: lg;
+	}
+
+	main :global(h3) {
+		font-family: mono;
+		font-size: lg;
+		text-transform: uppercase;
+		padding-bottom: sm;
+	}
+</style>

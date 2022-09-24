@@ -8,10 +8,12 @@ import Logo from '../components/header/Logo.astro';
 import '@fontsource/raleway/variable.css';
 import '@fontsource/work-sans/variable.css';
 import '@fontsource/jetbrains-mono/variable.css';
+import '@fontsource/martel-sans';
 
 // STYLES
 import '../styles/better-normalize.css';
 import '../styles/reset.local.css';
+import '../styles/presets.css';
 
 // DATA
 // Information for Navbar Links
@@ -23,6 +25,21 @@ const navPages = [
 	{ name: 'About Me', href: '/about' },
 	{ name: 'Links', href: '/links' },
 ];
+
+// PROPS
+export interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+
+const page = '/' + Astro.url.pathname.split('/')[1];
+const referer = Astro.request.headers.get('referer');
+let fromPage = '';
+if (referer) {
+	const url = new URL(referer ?? '');
+	fromPage = url.pathname;
+}
 ---
 
 <html lang="en" style="overflow-x:hidden">
@@ -31,7 +48,7 @@ const navPages = [
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Luke Shafer</title>
+		<title>{title ? title : 'Luke Shafer'}</title>
 	</head>
 	<body>
 		<div>
@@ -40,7 +57,10 @@ const navPages = [
 				<NavBar>
 					{
 						navPages.map(({ name, href }) => (
-							<NavItem href={href} active={href === Astro.url.pathname}>
+							<NavItem
+								href={href}
+								active={href === page}
+								from={fromPage === href}>
 								{name}
 							</NavItem>
 						))
@@ -61,7 +81,6 @@ const navPages = [
 				@media (prefers-color-scheme: dark) {
 					background-color: black;
 				}
-				font-weight: light;
 			}
 			div {
 				/* SIZE */
@@ -70,6 +89,7 @@ const navPages = [
 				box-sizing: border-box;
 				overflow-y: scroll;
 				overflow-x: hidden;
+				scroll-snap-type: y mandatory;
 
 				padding: md lg;
 				@media md {

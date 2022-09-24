@@ -2,15 +2,18 @@ lockfileVersion: 5.4
 
 specifiers:
   '@astrojs/image': ^0.7.0
+  '@astrojs/prefetch': ^0.0.7
   '@astrojs/tailwind': ^1.0.0
   '@astrojs/vercel': ^1.0.2
   '@fontsource/jetbrains-mono': ^4.5.10
+  '@fontsource/martel-sans': ^4.5.9
   '@fontsource/raleway': ^4.5.10
   '@fontsource/work-sans': ^4.5.12
   '@mavrin/stylelint-declaration-use-css-custom-properties': github:mavrin/stylelint-declaration-use-css-custom-properties
   '@tokencss/astro': ^0.0.4
   astro: ^1.2.7
   autoprefixer: ^10.4.11
+  css-has-pseudo: ^4.0.1
   normalize.css: ^8.0.1
   postcss-dark-theme-class: ^0.7.3
   postcss-easing-gradients: ^3.0.1
@@ -22,6 +25,7 @@ specifiers:
 
 dependencies:
   '@astrojs/image': 0.7.0
+  '@astrojs/prefetch': 0.0.7
   '@astrojs/tailwind': 1.0.0
   '@astrojs/vercel': 1.0.2
   '@tokencss/astro': 0.0.4_postcss@8.4.16
@@ -33,9 +37,11 @@ dependencies:
 
 devDependencies:
   '@fontsource/jetbrains-mono': 4.5.10
+  '@fontsource/martel-sans': 4.5.9
   '@fontsource/raleway': 4.5.10
   '@fontsource/work-sans': 4.5.12
   '@mavrin/stylelint-declaration-use-css-custom-properties': github.com/mavrin/stylelint-declaration-use-css-custom-properties/9ff91e9c564e8864571c5450136d8b76a63705ce_stylelint@14.12.0
+  css-has-pseudo: 4.0.1_postcss@8.4.16
   postcss-dark-theme-class: 0.7.3_postcss@8.4.16
   react-icons: 4.4.0_react@18.2.0
   stylelint: 14.12.0
@@ -132,6 +138,12 @@ packages:
       micromark-util-types: 1.0.2
       uvu: 0.5.6
       vfile-message: 3.1.2
+    dev: false
+
+  /@astrojs/prefetch/0.0.7:
+    resolution: {integrity: sha512-cdIIKcppywnnTseiSIk1s3g3VlcHY/qM4WoqMRaveEzOXWr6NzJ1/bKpRXpx9y6S7BDET+ziV2A7d4t+9vny+A==}
+    dependencies:
+      throttles: 1.0.1
     dev: false
 
   /@astrojs/prism/1.0.1:
@@ -611,6 +623,10 @@ packages:
 
   /@fontsource/jetbrains-mono/4.5.10:
     resolution: {integrity: sha512-dylbkBmAWL0fkjDpDoDbQCwTQ/W3DzLtVXmwGyAyttfKliPGSP2WpAmmMFYp9NpqFMF7CLprFyzppe8u39Orkw==}
+    dev: true
+
+  /@fontsource/martel-sans/4.5.9:
+    resolution: {integrity: sha512-Hj3XBaRqVv1O36QrGhz37NxHXjXzaIQppZKSqHpNU/68gXC9bj11HafuHOUCSl3w+di2wLVjvWvTXrebKxO9YA==}
     dev: true
 
   /@fontsource/raleway/4.5.10:
@@ -1509,6 +1525,18 @@ packages:
       postcss: 8.4.16
       postcss-selector-parser: 6.0.10
     dev: false
+
+  /css-has-pseudo/4.0.1_postcss@8.4.16:
+    resolution: {integrity: sha512-L3s0E0B+DhaFhUVpBAJri+Z7xVijUJQJUIDluB7LcsdNk8MIUS1a2EhrMhmMSGnFULcecQOjIenuvCYgKZBwew==}
+    engines: {node: ^12 || ^14 || >=16}
+    peerDependencies:
+      postcss: ^8.2
+    dependencies:
+      '@csstools/selector-specificity': 2.0.2_pnx64jze6bptzcedy5bidi3zdi
+      postcss: 8.4.16
+      postcss-selector-parser: 6.0.10
+      postcss-value-parser: 4.2.0
+    dev: true
 
   /css-prefers-color-scheme/6.0.3_postcss@8.4.16:
     resolution: {integrity: sha512-4BqMbZksRkJQx2zAjrokiGMd07RqOa2IxIrrN10lyBe9xhn9DEvjUK79J6jkeiv9D9hQFXKb6g1jwU62jziJZA==}
@@ -5297,6 +5325,11 @@ packages:
       minizlib: 2.1.2
       mkdirp: 1.0.4
       yallist: 4.0.0
+    dev: false
+
+  /throttles/1.0.1:
+    resolution: {integrity: sha512-fab7Xg+zELr9KOv4fkaBoe/b3L0GMGLd0IBSCn16GoE/Qx6/OfCr1eGNyEcDU2pUA79qQfZ8kPQWlRuok4YwTw==}
+    engines: {node: '>=6'}
     dev: false
 
   /tiny-glob/0.2.9:

@@ -1,0 +1,66 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import type { MarkdownLayoutProps } from 'astro';
+
+// PROPS
+type Props = MarkdownLayoutProps<{
+	title: string;
+	datePublished: Date;
+	author: string;
+}>;
+const {
+	frontmatter: { title, datePublished, author },
+} = Astro.props as Props;
+---
+
+<BaseLayout title={title}>
+	<article>
+		<header>
+			<h1>{title}</h1>
+			<div>
+				<address>by <a rel="author" href="#">Luke Shafer</a></address> on
+				<time datetime="2022-09-23">September 23, 2022</time>
+			</div>
+		</header>
+		<main>
+			<slot />
+		</main>
+	</article>
+</BaseLayout>
+
+<style>
+	article {
+		display: grid;
+		width: 100%;
+		grid-template-columns: min(35rem, 100%);
+		grid-auto-rows: min-content;
+		justify-content: center;
+		min-height: 100%;
+		gap: 3xl;
+	}
+
+	header {
+		display: grid;
+		gap: sm;
+
+		& div {
+			font-family: subheading;
+			font-weight: light;
+			font-size: lg;
+		}
+	}
+
+	h1 {
+		font-size: 5xl;
+	}
+
+	main {
+		display: grid;
+		gap: sm;
+
+		& :global(p) {
+			text-indent: 2rem;
+			line-height: 120%;
+		}
+	}
+</style>

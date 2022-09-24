@@ -1,32 +1,26 @@
 /** This file is for defining style variables to use
   * throughout the project */
 
-:root {
-	/* --------- COLOR --------- */
+@import url('https://fonts.googleapis.com/css2?family=Khula:wght@300&display=swap');
 
-	/* Light Theme */
-	--lt-primary: #0e7490;
-	--lt-bg: radial-gradient(
-		128.05% 278.86% at 0.33% 99.64%,
-		#eaecf6 0%,
-		#ffffff 100%
-	);
-	--lt-txt: #1a1a1a;
-	--lt-btn-fg: #eaebf6;
-	--lt-btn-bg: linear-gradient(270deg, #1a1a1a 0%, #000000 100%);
-	--lt-code: #000000;
-	--lt-code-bg: #e4e5e9;
+:where(p) {
+	font-family: Khula;
+	font-weight: light;
+	/* letter-spacing: 1px; */
+}
 
-	/* Dark Theme */
-	--dk-primary: #7de8e8;
-	--dk-bg: radial-gradient(
-		128.05% 278.86% at 0.33% 99.64%,
-		#0a0b13 0%,
-		#050505 100%
-	);
-	--dk-txt: #e7e7e7;
-	--dk-btn-fg: #0a0b13;
-	--dk-btn-bg: linear-gradient(270deg, #d9d9d9 0%, #ffffff 100%);
-	--dk-code: #ffffff;
-	--dk-code-bg: #32323c;
+:where(h1) {
+	font-family: display;
+	font-size: 3xl;
+	font-weight: normal;
+}
+
+:where(h2, h3, h4, h5, h6) {
+	font-family: subheading;
+	font-size: xl;
+	font-weight: light;
+}
+
+:where(code) {
+	font-family: mono;
 }

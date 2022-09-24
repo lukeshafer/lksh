@@ -1,17 +1,19 @@
 ---
+export interface Props {
+	jobs: any;
+}
+
 const companies = [
-	"TrueCommerce",
-	"CodeWizardsHQ",
-	"VIPKid",
-	"Apple",
-	"LCS",
-	"Martin & Associates",
-	"University of Cincinnati"
-]
+	'TrueCommerce',
+	'CodeWizardsHQ',
+	'VIPKid',
+	'Apple',
+	'LCS',
+	'Martin & Associates',
+	'University of Cincinnati',
+];
 ---
 
 <ul>
-  {companies.map((value) => 
-    <li>{value}</li>
-  )}
+	{companies.map((value) => <li>{value}</li>)}
 </ul>
