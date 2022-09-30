@@ -1,30 +1,18 @@
 ---
 // COMPONENTS
-import NavBar from '../components/nav/NavBar.astro';
-import NavItem from '../components/nav/NavItem.astro';
-import Logo from '../components/header/Logo.astro';
+import Footer from '../components/footer/Footer.astro';
 
 // FONTS
 import '@fontsource/raleway/variable.css';
 import '@fontsource/work-sans/variable.css';
 import '@fontsource/jetbrains-mono/variable.css';
-import '@fontsource/martel-sans';
+import '@fontsource/khula';
 
 // STYLES
-import '../styles/better-normalize.css';
-import '../styles/reset.local.css';
-import '../styles/presets.css';
-
-// DATA
-// Information for Navbar Links
-const navPages = [
-	{ name: 'Home', href: '/' },
-	{ name: 'Portfolio', href: '/portfolio' },
-	{ name: 'Resume', href: '/resume' },
-	{ name: 'Blog', href: '/blog' },
-	{ name: 'About Me', href: '/about' },
-	{ name: 'Links', href: '/links' },
-];
+// import '../styles/better-normalize.css';
+// import '../styles/reset.local.css';
+// import '../styles/presets.css';
+import '../app.css';
 
 // PROPS
 export interface Props {
@@ -32,14 +20,6 @@ export interface Props {
 }
 
 const { title } = Astro.props;
-
-const page = '/' + Astro.url.pathname.split('/')[1];
-const referer = Astro.request.headers.get('referer');
-let fromPage = '';
-if (referer) {
-	const url = new URL(referer ?? '');
-	fromPage = url.pathname;
-}
 ---
 
 <html lang="en" style="overflow-x:hidden">
@@ -50,117 +30,13 @@ if (referer) {
 		<meta name="generator" content={Astro.generator} />
 		<title>{title ? title : 'Luke Shafer'}</title>
 	</head>
-	<body>
-		<div>
-			<header>
-				<Logo />
-				<NavBar>
-					{
-						navPages.map(({ name, href }) => (
-							<NavItem
-								href={href}
-								active={href === page}
-								from={fromPage === href}>
-								{name}
-							</NavItem>
-						))
-					}
-				</NavBar>
-			</header>
-			<main>
-				<slot />
-			</main>
-		</div>
-		<style media="screen">
+	<body
+		class="h-screen text-gray-900 dark:text-gray-50 bg-radial-at-bl from-sky-200 via-gray-100 to-white dark:from-gray-900 dark:via-gray-900 dark:to-black bg-fixed">
+		<slot />
+		<Footer />
+		<style>
 			:root {
-				font-size: clamp(100%, 0.8vw + 0.8rem, 180%);
-			}
-
-			body {
-				background-color: white;
-				@media (prefers-color-scheme: dark) {
-					background-color: black;
-				}
-			}
-			div {
-				/* SIZE */
-				height: screen;
-				width: screen;
-				box-sizing: border-box;
-				overflow-y: scroll;
-				overflow-x: hidden;
-				scroll-snap-type: y mandatory;
-
-				padding: md lg;
-				@media md {
-					padding: lg xl;
-				}
-				@media lg {
-					padding: 3xl 4xl;
-				}
-
-				/* LAYOUT */
-				display: grid;
-				grid-template-columns: 3fr 1fr;
-				grid-template-rows: 3rem 1fr;
-
-				@media (min-width: 768px) {
-					grid-template-columns: 1fr 5rem;
-				}
-				grid-auto-flow: dense;
-				gap: 2xl;
-
-				/* LIGHT MODE (default) */
-				background: radial-gradient(
-					circle at left bottom,
-					blue.2 0%,
-					slate.0 50%,
-					white 100%
-				);
-				color: slate.9;
-
-				/* DARK MODE */
-				@media (prefers-color-scheme: dark) {
-					background: radial-gradient(
-						circle at left bottom,
-						slate.9 0%,
-						black 100%
-					);
-					color: slate.0;
-				}
-			}
-
-			header {
-				/* LAYOUT */
-				grid-column: span 2;
-
-				display: flex;
-				position: relative;
-				justify-content: space-between;
-				align-items: center;
-			}
-
-			main {
-				/* SIZE */
-				width: full;
-				height: full;
-
-				/* LAYOUT */
-				grid-column: span 2;
-				@media (min-width: 768px) {
-					grid-column: 1;
-				}
-				grid-row: 2;
-
-				/* INNER LAYOUT */
-				display: flex;
-				align-items: center;
-
-				/* COLORS */
-				color: gray.9;
-				@media (prefers-color-scheme: dark) {
-					color: gray.1;
-				}
+				font-size: clamp(100%, 2vw, 180%);
 			}
 		</style>
 	</body>

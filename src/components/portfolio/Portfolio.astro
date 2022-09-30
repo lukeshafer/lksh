@@ -1,0 +1,30 @@
+---
+import { projects } from '../../data/projects';
+import { Project } from './Project';
+---
+
+<script>
+	const h2 = document.getElementById('portfolio-heading');
+	const observer = new IntersectionObserver(
+		(entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) entry.target.classList.remove('opacity-0');
+				else entry.target.classList.add('opacity-0');
+			});
+		},
+		{ threshold: 0.5, rootMargin: '0px 0px -30% 0px' }
+	);
+
+	observer.observe(h2!);
+</script>
+
+<section class="w-full relative flex flex-col justify-center group">
+	<h2
+		id="portfolio-heading"
+		class="text-5xl font-display text-center transition-opacity duration-300">
+		My Portolio
+	</h2>
+	<ul class="py-28 flex flex-col gap-12">
+		{projects.map((p) => <Project {...p} client:visible />)}
+	</ul>
+</section>

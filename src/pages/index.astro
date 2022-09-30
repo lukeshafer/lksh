@@ -1,61 +1,13 @@
 ---
+import Header from '../components/header/Header.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Language from '../components/Language.astro';
+
+import Portfolio from '../components/portfolio/Portfolio.astro';
 ---
 
-<BaseLayout title="Home | Luke Shafer">
-	<div>
-		<section>
-			<h1>
-				Hi, I'm <span>Luke Shafer</span>
-			</h1>
-			<p>I'm a <Language /> Developer</p>
-		</section>
-	</div>
+<BaseLayout title="Luke Shafer">
+	<Header />
+	<main class="p-4">
+		<Portfolio />
+	</main>
 </BaseLayout>
-
-<style media="screen">
-	div {
-		display: flex;
-		flex-direction: column;
-		gap: lg;
-	}
-
-	section {
-		/* LAYOUT */
-		display: flex;
-		flex-flow: column;
-		justify-content: center;
-		gap: sm;
-
-		height: 100%;
-		padding-left: max(10vw - 2.4rem, 0px);
-		padding-bottom: 3xl;
-	}
-
-	h1 {
-		font-family: display;
-		font-size: 5xl;
-		@media md {
-			font-size: 7xl;
-		}
-		font-weight: normal;
-
-		& span {
-			display: inline-block;
-			color: cyan.8;
-			@media (prefers-color-scheme: dark) {
-				color: cyan.3;
-			}
-		}
-	}
-
-	p {
-		font-family: subheading;
-		font-size: 2xl;
-		@media md {
-			font-size: 4xl;
-		}
-		font-weight: light;
-	}
-</style>

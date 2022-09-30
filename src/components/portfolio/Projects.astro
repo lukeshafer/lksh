@@ -1,5 +1,5 @@
 ---
-const projects = [
+const oldprojects = [
 	{
 		name: 'Fridge Magnets',
 		short: 'Multiplayer party game',
@@ -44,27 +44,32 @@ const projects = [
 		],
 	},
 ];
+
+export interface Props {
+	projects: typeof import("../../data/resume.json").projects;
+}
+
+const { projects } = Astro.props as Props;
 ---
 
 <ul>
 	{
-		projects.map(({ name, short, repo, url, tech, feats }) => (
+		projects.map((project) => (
 			<li>
-				<h4>{name}</h4>
-				<p>{short}</p>
-				<a href={`https://github.com/lukeshafer/${repo}`}>Github Repository</a>
-				<a href={`https://${url}`}>Website</a>
-				<h4>Tech I used</h4>
-				<ul>
-					{tech.map((value) => (
+				<h4>{project.name}</h4>
+				<div class='info'>
+					<a href={project.url}>{project.url.replace("https://", "")}</a> 
+				</div>
+				<ul class="bullet">
+					<li>
+						{project.description}
+					</li>
+					{project.highlights.map((value) => (
 						<li>{value}</li>
 					))}
-				</ul>
-				<h4>Accomplishments</h4>
-				<ul>
-					{feats.map((value) => (
-						<li>{value}</li>
-					))}
+					<li>
+						{project.keywords.join(", ")}
+					</li>
 				</ul>
 			</li>
 		))

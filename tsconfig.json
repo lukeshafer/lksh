@@ -1,7 +1,10 @@
 {
 	"extends": "astro/tsconfigs/strictest",
 	"compilerOptions": {
-		"baseUrl": "./"
+		"baseUrl": "./",
+		"experimentalDecorators": true,
+		"jsx": "preserve",
+		"jsxImportSource": "solid-js"
 	},
 	"paths": {
 		"$styles/*": "src/styles/*",

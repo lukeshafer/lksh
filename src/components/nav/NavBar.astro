@@ -1,3 +1,7 @@
+---
+import { Hamburger } from './Hamburger';
+---
+
 <script is:inline>
 	let isActive = false;
 
@@ -23,126 +27,16 @@
 	});
 </script>
 
-<nav>
-	<ul>
+<nav
+	class="group fixed h-full px-20 py-8 transition duration-300 bg-transparent">
+	<ul
+		class="fixed md:static top-0 left-0 right-0 h-3/5 opacity-0 focus-within:opacity-100 bg-transparent bg-gradient-to-b from-sky-200 via-sky-200/60 to-transparent dark:from-gray-900 dark:via-gray-900/60 md:bg-opacity-0 flex flex-col gap-12 items-end">
 		<slot />
 	</ul>
+	<Hamburger client:load />
 </nav>
-<button hidden onclick="handleClick(this)" tabindex="-1"></button>
 
 <style>
-	button {
-		display: block;
-		background: transparent;
-		height: md;
-		display: flex;
-		flex-direction: column;
-		gap: xs;
-		z-index: 1;
-
-		/* FIXME: replace with Token */
-		@media (min-width: 768px) {
-			display: none;
-		}
-
-		&::after,
-		&::before {
-			background-color: black;
-			@media (prefers-color-scheme: dark) {
-				background-color: white;
-			}
-			content: '';
-			display: inline-block;
-			width: lg;
-			height: 2xs;
-			color: inherit;
-			transition: transform 200ms;
-			transition-timing-function: quartic.out;
-		}
-	}
-
-	nav {
-		/* POSITION */
-		position: fixed;
-		top: -100vh;
-		left: 0;
-		right: 0;
-
-		/* LAYOUT */
-		height: 60%;
-		padding: 5xl 2xl;
-
-		/* ANIMATION */
-		transition: opacity 200ms, transform 500ms;
-		transition-timing-function: exponential.out, sine.in;
-
-		/* OTHER DISPLAY */
-		opacity: 0;
-		background-color: transparent;
-		background: linear-gradient(
-			to bottom,
-			cyan.0 20%,
-			rgba(cyan.0, 0.8) 90%,
-			rgba(cyan.0, 0)
-		);
-
-		/* FIXME: replace with Token */
-		@media (prefers-color-scheme: dark) {
-			background: linear-gradient(
-				to bottom,
-				slate.9 20%,
-				rgba(slate.9, 0.8) 90%,
-				rgba(slate.9, 0)
-			);
-		}
-
-		/* FIXME: replace with Token */
-		@media (min-width: 768px) {
-			/* LAYOUT */
-			top: 0;
-			left: auto;
-			right: xs;
-			height: 100%;
-			padding: 0 2xl;
-
-			/* CENTER UL */
-			display: flex;
-			align-items: center;
-
-			/* COLOR */
-			opacity: 1;
-			background-color: none;
-			/* FIXME: IMPORTANT IS BAD */
-			background: transparent !important;
-		}
-	}
-
-	nav:focus-within {
-		transform: translateY(100vh);
-		transition: opacity 200ms, transform 200ms;
-		transition-timing-function: cubic.in, exponential.out;
-		/* transition: transform 300ms; */
-		opacity: 1;
-		z-index: 1;
-
-		@media (min-width: 768px) {
-			transform: none;
-		}
-
-		& + button {
-			/* pointer-events: none; */
-
-			&::after {
-				cursor: pointer;
-				transform: rotate(45deg) translateY(-0.5rem);
-			}
-			&::before {
-				cursor: pointer;
-				transform: rotate(-45deg) translateY(0.5rem);
-			}
-		}
-	}
-
 	ul {
 		display: flex;
 		flex-direction: column;

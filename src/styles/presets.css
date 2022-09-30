@@ -1,8 +1,6 @@
 /** This file is for defining style variables to use
   * throughout the project */
 
-@import url('https://fonts.googleapis.com/css2?family=Khula:wght@300&display=swap');
-
 :where(p) {
 	font-family: Khula;
 	font-weight: light;

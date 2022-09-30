@@ -16,12 +16,16 @@ module.exports = {
 		},
 		fontFamily: {
 			display: ['RalewayVariable', ...defaultTheme.fontFamily.sans],
-			body: ['"Work SansVariable"', ...defaultTheme.fontFamily.sans],
+			subheading: ['"Work SansVariable"', ...defaultTheme.fontFamily.sans],
+			body: ['Khula', ...defaultTheme.fontFamily.sans],
 			mono: ['"JetBrains MonoVariable"', ...defaultTheme.fontFamily.mono],
 		},
 		extend: {
 			backgroundImage: {
 				'radial-at-bl': 'radial-gradient(at 0% 100%, var(--tw-gradient-stops))',
+			},
+			transitionTimingFunction: {
+				'out-cubic': 'cubic-bezier(0.33, 1, 0.68, 1)',
 			},
 		},
 	},

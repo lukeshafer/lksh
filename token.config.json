@@ -6,16 +6,28 @@
 	},
 	"color": {
 		"slate": {
-			"9": { "value": "#080818" },
-			"8": { "value": "#242431" },
-			"7": { "value": "#3F3F4A" },
-			"6": { "value": "#5B5B63" },
-			"5": { "value": "#76767D" },
-			"4": { "value": "#919196" },
-			"3": { "value": "#ACACAF" },
-			"2": { "value": "#C7C7C9" },
-			"1": { "value": "#E2E2E3" },
-			"0": { "value": "#FDFDFD" }
+			"0": { "value": "#F7F7FF" },
+			"1": { "value": "#E6E6F5" },
+			"2": { "value": "#C1C1CF" },
+			"3": { "value": "#A7A7B3" },
+			"4": { "value": "#87879A" },
+			"5": { "value": "#707084" },
+			"6": { "value": "#58586A" },
+			"7": { "value": "#383854" },
+			"8": { "value": "#1A1A3A" },
+			"9": { "value": "#020228" }
+		},
+		"primary": {
+			"0": { "value": "#e7f5ff" },
+			"1": { "value": "#d0ebff" },
+			"2": { "value": "#a5d8ff" },
+			"3": { "value": "#74c0fc" },
+			"4": { "value": "#4dabf7" },
+			"5": { "value": "#339af0" },
+			"6": { "value": "#228be6" },
+			"7": { "value": "#1c7ed6" },
+			"8": { "value": "#1971c2" },
+			"9": { "value": "#1864ab" }
 		}
 	},
 	"font": {
@@ -47,7 +59,7 @@
 		},
 		"body": {
 			"value": [
-				"Martel Sans",
+				"Khula",
 				"system-ui",
 				"-apple-system",
 				"Segoe UI",

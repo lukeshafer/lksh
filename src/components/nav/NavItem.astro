@@ -3,30 +3,41 @@ import Caret from './Caret.astro';
 
 export interface Props {
 	href: string;
-	active?: boolean;
-	from?: boolean;
 }
 
-const { href, active, from } = Astro.props as Props;
+const { href } = Astro.props as Props;
 
-const activeClass = active ? 'active' : '';
-const fromClass = from ? 'from' : '';
+const page = '/' + Astro.url.pathname.split('/')[1];
+const referer = Astro.request.headers.get('referer');
+let fromPage = '';
+if (referer) {
+	const url = new URL(referer ?? '');
+	fromPage = url.pathname;
+}
+
+const active = href === page ? 'active' : '';
+const from = href === fromPage ? 'from' : '';
 ---
 
 <li>
-	<a href={href} class={`${activeClass} ${fromClass}`} rel="prefetch"
-		><Caret active={activeClass} from={fromClass} /><slot />
+	<a href={href} class={`${active} ${from}`} rel="prefetch"
+		><Caret active={active} from={from} /><slot />
 	</a>
 </li>
 
 <style>
+	li,
+	a {
+		z-index: 1;
+	}
+
 	a {
 		/* COLORS */
 		color: inherit;
 		&:hover {
-			color: blue.9;
+			color: primary.9;
 			@media (prefers-color-scheme: dark) {
-				color: blue.1;
+				color: primary.1;
 			}
 		}
 
