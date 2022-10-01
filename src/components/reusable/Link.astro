@@ -1,0 +1,15 @@
+---
+import HoverUnderline from './HoverUnderline.astro';
+
+export interface Props {
+	href: string;
+}
+
+const { href } = Astro.props as Props;
+---
+
+<a
+	class="font-subheading before:content-['>_'] before:mr-2 text-sky-600 dark:text-sky-300 inline group"
+	href={href}
+	><HoverUnderline><slot /></HoverUnderline>
+</a>

@@ -9,7 +9,7 @@ const { active, from } = Astro.props as Props;
 const className = active || from || '';
 ---
 
-<span class={className} hidden>{'>'}</span>
+<span class={className + 'mr-1 opacity-0'} hidden>{'>'}</span>
 
 <style>
 	@keyframes slideIn {
@@ -23,18 +23,13 @@ const className = active || from || '';
 		}
 	}
 
-	span {
-		margin-right: 2xs;
-		opacity: 0;
-
-		&.active {
-			display: inline-block;
-			animation: slideIn 400ms forwards cubic.out;
-			opacity: 1;
-		}
-		&.from {
-			display: inline-block;
-			animation: slideIn 400ms reverse forwards sine.in;
-		}
+	span.active {
+		display: inline-block;
+		animation: slideIn 400ms forwards cubic.out;
+		opacity: 1 !important;
+	}
+	span.from {
+		display: inline-block;
+		animation: slideIn 400ms reverse forwards sine.in;
 	}
 </style>

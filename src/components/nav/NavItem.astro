@@ -1,6 +1,4 @@
 ---
-import Caret from './Caret.astro';
-
 export interface Props {
 	href: string;
 }
@@ -15,47 +13,27 @@ if (referer) {
 	fromPage = url.pathname;
 }
 
-const active = href === page ? 'active' : '';
-const from = href === fromPage ? 'from' : '';
+const active = href === page;
+const from = href === fromPage;
 ---
 
 <li>
-	<a href={href} class={`${active} ${from}`} rel="prefetch"
-		><Caret active={active} from={from} /><slot />
+	<a
+		href={href}
+		class="font-mono text-sm text-inherit whitespace-nowrap hover:text-sky-800 dark:hover:text-sky-200"
+		class:list={[{ active, from }]}
+		rel="prefetch"
+		><slot />
 	</a>
 </li>
 
 <style>
-	li,
-	a {
-		z-index: 1;
+	a.active {
+		font-weight: semibold;
+		animation: activate 200ms forwards;
 	}
-
-	a {
-		/* COLORS */
-		color: inherit;
-		&:hover {
-			color: primary.9;
-			@media (prefers-color-scheme: dark) {
-				color: primary.1;
-			}
-		}
-
-		/* FONT */
-		font-family: mono;
-		font-weight: light;
-		&.active {
-			font-weight: semibold;
-			animation: activate 200ms forwards;
-		}
-		font-size: md;
-		@media (min-width: 768px) {
-			font-size: sm;
-		}
-
-		&.from {
-			animation: activate 200ms reverse forwards;
-		}
+	a.from {
+		animation: activate 200ms reverse forwards;
 	}
 
 	@keyframes activate {

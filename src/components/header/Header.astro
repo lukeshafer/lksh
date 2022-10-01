@@ -1,9 +1,12 @@
 ---
+import NavBar from '../nav/NavBar.astro';
 import Logo from './Logo.astro';
-import { HeadingText } from './HeadingText';
+import Socials from './Socials.astro';
 ---
 
-<header class="flex flex-col px-4 py-6 gap-4 top-0">
+<header
+	class="grid grid-cols-2 grid-rows-2 grid-flow-dense sm:grid-rows-1 sm:grid-cols-4 justify-between px-9 py-6 gap-4 top-0">
 	<Logo />
-	<HeadingText client:load />
+	<NavBar />
+	<Socials />
 </header>

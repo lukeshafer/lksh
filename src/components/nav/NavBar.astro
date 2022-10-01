@@ -1,46 +1,13 @@
 ---
-import { Hamburger } from './Hamburger';
+import NavItem from './NavItem.astro';
 ---
 
-<script is:inline>
-	let isActive = false;
-
-	/** @param element {HTMLButtonElement} */
-	function handleClick(element) {
-		/** @type {HTMLElement} */
-		const nav = document.querySelector('nav');
-
-		/** @type {NodeListOf<HTMLAnchorElement>} */
-		const navLinks = document.querySelectorAll('nav a');
-
-		if (isActive) document.activeElement.blur();
-		else
-			nav.firstElementChild.firstElementChild.firstElementChild.focus({
-				focusVisible: false,
-			});
-
-		isActive = !isActive;
-	}
-
-	document.addEventListener('keydown', (event) => {
-		if (event.code === 'Escape') document.activeElement.blur();
-	});
-</script>
-
-<nav
-	class="group fixed h-full px-20 py-8 transition duration-300 bg-transparent">
-	<ul
-		class="fixed md:static top-0 left-0 right-0 h-3/5 opacity-0 focus-within:opacity-100 bg-transparent bg-gradient-to-b from-sky-200 via-sky-200/60 to-transparent dark:from-gray-900 dark:via-gray-900/60 md:bg-opacity-0 flex flex-col gap-12 items-end">
-		<slot />
+<nav class="col-span-2">
+	<ul class="flex flex-row gap-10 justify-center">
+		<NavItem href="/">Home</NavItem>
+		<NavItem href="/projects">Projects</NavItem>
+		<NavItem href="/blog">Blog</NavItem>
+		<NavItem href="/about">About Me</NavItem>
 	</ul>
-	<Hamburger client:load />
+	<!-- <Hamburger client:load /> -->
 </nav>
-
-<style>
-	ul {
-		display: flex;
-		flex-direction: column;
-		gap: 3xl;
-		align-items: flex-end;
-	}
-</style>

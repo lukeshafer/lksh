@@ -1,0 +1,26 @@
+---
+import Link from '../reusable/Link.astro';
+import { Language } from './Language';
+---
+
+<div class="pt-[25vh] pb-28 pl-[max(0px,calc(16vw-4rem))] grid gap-16">
+	<div id="heading" class="grid gap-2">
+		<h1 class="font-display text-6xl font-normal top-0">
+			Hi, I'm{' '}
+			<span class="text-sky-600 dark:text-sky-300 inline-block">
+				Luke Shafer
+			</span>
+		</h1>
+		<p class="font-subheading text-3xl flex items-center gap-2 font-light">
+			and I'm a <Language client:load /> Developer
+		</p>
+	</div>
+	<ul class="grid gap-2 text-lg">
+		<li>
+			<Link href="#">Download my resume</Link>
+		</li>
+		<li>
+			<Link href="#">Get in touch</Link>
+		</li>
+	</ul>
+</div>
