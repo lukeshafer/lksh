@@ -1,0 +1,13 @@
+---
+import { Icon } from "astro-icon";
+
+export interface Props {
+	name: string;
+}
+
+const { name } = Astro.props as Props;
+---
+
+<li class="grid justify-center justify-items-center gap-1 text-center">
+	<Icon name={name} class="w-12" /><slot />
+</li>

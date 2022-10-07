@@ -1,18 +1,19 @@
 ---
 // COMPONENTS
-import Footer from '../components/footer/Footer.astro';
+import Footer from "../components/footer/Footer.astro";
+import Header from "../components/header/Header.astro";
 
 // FONTS
-import '@fontsource/raleway/variable.css';
-import '@fontsource/work-sans/variable.css';
-import '@fontsource/jetbrains-mono/variable.css';
-import '@fontsource/khula';
+import "@fontsource/raleway/variable.css";
+import "@fontsource/work-sans/variable.css";
+import "@fontsource/jetbrains-mono/variable.css";
+import "@fontsource/khula";
 
 // STYLES
 // import '../styles/better-normalize.css';
 // import '../styles/reset.local.css';
 // import '../styles/presets.css';
-import '../app.css';
+import "../app.css";
 
 // PROPS
 export interface Props {
@@ -28,15 +29,17 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title ? title : 'Luke Shafer'}</title>
+		<title>{title ? title : "Luke Shafer"}</title>
 	</head>
 	<body
-		class="h-screen text-gray-800 dark:text-gray-50 bg-radial-at-bl from-sky-200 via-gray-100 to-white dark:from-gray-800 dark:via-gray-800 dark:to-black bg-fixed">
+		class="h-screen text-gray-800 dark:text-gray-50 bg-radial-at-bl from-sky-200 via-gray-100 to-white dark:from-gray-800 dark:via-gray-800 dark:to-black bg-fixed"
+	>
+		<Header />
 		<slot />
 		<Footer />
 		<style>
 			:root {
-				font-size: clamp(85%, 0.2rem + 1.3vw, 180%);
+				font-size: clamp(85%, 0.2rem + 1.3vw, 150%);
 			}
 		</style>
 	</body>

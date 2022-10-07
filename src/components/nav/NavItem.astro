@@ -1,15 +1,17 @@
 ---
+import HoverUnderline from "../reusable/HoverUnderline.astro";
+
 export interface Props {
 	href: string;
 }
 
 const { href } = Astro.props as Props;
 
-const page = '/' + Astro.url.pathname.split('/')[1];
-const referer = Astro.request.headers.get('referer');
-let fromPage = '';
+const page = "/" + Astro.url.pathname.split("/")[1];
+const referer = Astro.request.headers.get("referer");
+let fromPage = "";
 if (referer) {
-	const url = new URL(referer ?? '');
+	const url = new URL(referer ?? "");
 	fromPage = url.pathname;
 }
 
@@ -20,10 +22,13 @@ const from = href === fromPage;
 <li>
 	<a
 		href={href}
-		class="font-mono text-sm text-inherit whitespace-nowrap hover:text-sky-800 dark:hover:text-sky-200"
+		class="font-mono text-sm text-inherit whitespace-nowrap hover:text-sky-800 group dark:hover:text-sky-200"
 		class:list={[{ active, from }]}
 		rel="prefetch"
-		><slot />
+	>
+		<HoverUnderline>
+			<slot />
+		</HoverUnderline>
 	</a>
 </li>
 
