@@ -1,0 +1,54 @@
+---
+import { Image } from "@astrojs/image/components";
+import { Icon } from "astro-icon";
+import StackList from "./StackList.astro";
+import Link from "../../reusable/Link.astro";
+---
+
+<section
+	id="bio"
+	class="h-screen px-grow pt-32 flex flex-col gap-4 items-center snap-start overflow-y-scroll"
+>
+	<h2 class="text-4xl font-display text-center col-span-2">Who am I?</h2>
+	<div class="flex flex-1 flex-wrap justify-center gap-20 w-full items-center">
+		<!-- IMAGE AND SHORT BIO -->
+		<div class="flex flex-col w-min gap-4 justify-center items-center">
+			<Image
+				src={"src/assets/headshot-bw.png"}
+				width={400}
+				height={400}
+				alt="My headshot"
+				class="rounded-full shadow-sm shadow-black/10 w-60 bg-gray-700 dark:bg-gray-300 h-60 pt-5 object-contain"
+			/>
+			<p class="w-96">
+				I love building things! I try to bring a <strong
+					class="text-sky-700 dark:text-sky-300"
+				>
+					creative touch
+				</strong> to my projects. My goal as a developer is to focus on great user
+				experiences which don't compromise on accessibility.
+			</p>
+			<div class="w-full">
+				<Link href="/about">Learn more</Link>
+			</div>
+		</div>
+		<!-- STACK LIST -->
+		<div class="relative pl-12">
+			<h3 class="absolute font-mono -top-12">My favorite tech</h3>
+			<StackList />
+		</div>
+	</div>
+	<div class="w-full text-center">
+		<a
+			href="#projects"
+			class="p-4 text-center inline-flex w-max gap-1 flex-col items-center hover:text-sky-700 dark:hover:text-sky-200 transition-colors"
+		>
+			Projects<br /><Icon
+				name="bi:arrow-down-circle-fill"
+				class="w-12"
+				height={30}
+				width={30}
+			/>
+		</a>
+	</div>
+</section>

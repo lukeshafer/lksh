@@ -1,13 +1,14 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/home/Hero.astro";
-import Bio from "../modules/home-bio/Bio.astro";
+import Bio from "../components/home/bio/Bio.astro";
+import Projects from "../components/home/projects/Projects.astro";
 ---
 
 <BaseLayout title="Luke Shafer">
 	<main class="/">
 		<Hero />
 		<Bio />
-		<!-- Section on  -->
+		<Projects />
 	</main>
 </BaseLayout>

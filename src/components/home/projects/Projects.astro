@@ -1,0 +1,39 @@
+---
+import { Icon } from "astro-icon";
+---
+
+<section
+	id="projects"
+	class="h-screen px-grow pt-32 flex flex-col gap-4 items-center snap-start"
+>
+	<h2 class="text-4xl font-display text-center col-span-2">My Projects</h2>
+	<div class="flex-1 grid items-center">
+		<!-- Image wrapper -->
+		<div
+			class="bg-gray-800 dark:bg-gray-200 bg-[url('/assets/fridgemagnets.png')] bg-cover h-60 w-96 overflow-clip"
+		>
+			<div
+				class="bg-gradient-to-b from-transparent via-gray-900/60 to-gray-900/80 h-full w-full align-text-bottom flex items-end justify-center text-center p-4"
+			>
+				<h3
+					class="font-subheading text-4xl text-white font-medium drop-shadow shadow-black"
+				>
+					Fridge Magnets
+				</h3>
+			</div>
+		</div>
+	</div>
+	<div class="w-full text-center">
+		<a
+			href="#projects"
+			class="p-4 text-center inline-flex w-max gap-1 flex-col items-center hover:text-sky-700 dark:hover:text-sky-200 transition-colors"
+		>
+			Blog<br /><Icon
+				name="bi:arrow-down-circle-fill"
+				class="w-12"
+				height={30}
+				width={30}
+			/>
+		</a>
+	</div>
+</section>
