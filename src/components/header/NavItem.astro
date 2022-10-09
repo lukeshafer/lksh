@@ -1,5 +1,5 @@
 ---
-import HoverUnderline from "../reusable/HoverUnderline.astro";
+import Link from "../reusable/Link.astro";
 
 export interface Props {
 	href: string;
@@ -26,9 +26,9 @@ const from = href === fromPage;
 		class:list={[{ active, from }]}
 		rel="prefetch"
 	>
-		<HoverUnderline>
+		<Link href={href} class="font-mono">
 			<slot />
-		</HoverUnderline>
+		</Link>
 	</a>
 </li>
 

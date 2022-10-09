@@ -1,13 +1,12 @@
 ---
 import { Image } from "@astrojs/image/components";
 import { Icon } from "astro-icon";
-import StackList from "./StackList.astro";
 import Link from "../../reusable/Link.astro";
 ---
 
 <section
 	id="bio"
-	class="h-screen px-grow pt-32 flex flex-col gap-4 items-center snap-start overflow-y-scroll"
+	class="h-screen px-grow pt-20 flex flex-col gap-4 items-center snap-start"
 >
 	<h2 class="text-4xl font-display text-center col-span-2">Who am I?</h2>
 	<div class="flex flex-1 flex-wrap justify-center gap-20 w-full items-center">
@@ -29,13 +28,8 @@ import Link from "../../reusable/Link.astro";
 				experiences which don't compromise on accessibility.
 			</p>
 			<div class="w-full">
-				<Link href="/about">Learn more</Link>
+				<Link href="/about" caret class="font-subheading">Learn more</Link>
 			</div>
-		</div>
-		<!-- STACK LIST -->
-		<div class="relative pl-12">
-			<h3 class="absolute font-mono -top-12">My favorite tech</h3>
-			<StackList />
 		</div>
 	</div>
 	<div class="w-full text-center">
@@ -43,7 +37,7 @@ import Link from "../../reusable/Link.astro";
 			href="#projects"
 			class="p-4 text-center inline-flex w-max gap-1 flex-col items-center hover:text-sky-700 dark:hover:text-sky-200 transition-colors"
 		>
-			Projects<br /><Icon
+			Tech<br /><Icon
 				name="bi:arrow-down-circle-fill"
 				class="w-12"
 				height={30}

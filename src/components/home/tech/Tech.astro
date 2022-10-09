@@ -1,0 +1,61 @@
+---
+import { Icon } from "astro-icon";
+import StackIcon from "./StackIcon.astro";
+---
+
+<section
+	id="tech"
+	class="h-screen px-grow pt-32 flex flex-col w-full snap-start"
+>
+	<div class="flex flex-1 flex-wrap justify-evenly items-center w-full">
+		<div class="w-80 grid gap-4">
+			<h2 class="text-4xl font-display">My favorite tech</h2>
+			<p class="w-60">
+				Hover or click on an icon to see a project I've made with it.
+			</p>
+		</div>
+		<ul class="grid grid-cols-3 grid-rows-2 gap-y-4 gap-x-12">
+			<StackIcon name="simple-icons:react" c1="#7de0fc" c2="#149eca"
+				>React</StackIcon
+			>
+			<StackIcon name="simple-icons:typescript" c1="#3178c6" c2="#235a97"
+				>TypeScript</StackIcon
+			>
+			<StackIcon name="simple-icons:astro" c1="#6820a4" c2="#c026d3"
+				>Astro</StackIcon
+			>
+			<StackIcon name="simple-icons:postcss" c1="#dd3a0a" c2="#dd3735"
+				>PostCSS</StackIcon
+			>
+			<StackIcon name="simple-icons:nodedotjs" c1="#77b65d" c2="#3e863d"
+				>Node.js</StackIcon
+			>
+			<StackIcon name="simple-icons:svelte" c1="#ff3e00" c2="#c25d2e"
+				>Svelte</StackIcon
+			>
+			<StackIcon name="simple-icons:tailwindcss" c1="#38bdf8" c2="#f472b6"
+				>TailwindCSS</StackIcon
+			>
+			<StackIcon name="simple-icons:nextdotjs" c1="#e3e1f6" c2="#ebeae8"
+				>Next.js</StackIcon
+			>
+			<StackIcon name="simple-icons:solid" c1="#87bee6" c2="#3966b1"
+				>SolidJS</StackIcon
+			>
+		</ul>
+	</div>
+
+	<div class="w-full text-center">
+		<a
+			href="#projects"
+			class="p-4 text-center inline-flex w-max gap-1 flex-col items-center hover:text-sky-700 dark:hover:text-sky-200 transition-colors"
+		>
+			Projects<br /><Icon
+				name="bi:arrow-down-circle-fill"
+				class="w-12"
+				height={30}
+				width={30}
+			/>
+		</a>
+	</div>
+</section>

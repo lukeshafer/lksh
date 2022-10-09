@@ -1,0 +1,25 @@
+---
+export interface Props {
+	name: string;
+	image: string;
+	width: number; // in rem units
+	link: string;
+}
+
+const { name, image, width, link } = Astro.props as Props;
+---
+
+<div
+	class={`bg-gray-800 dark:bg-gray-200 bg-cover h-60 overflow-clip`}
+	style={`width: ${width}rem; background-image: url('${image}')`}
+>
+	<div
+		class="bg-gradient-to-b from-transparent via-gray-900/60 to-gray-900/80 h-full w-full align-text-bottom flex items-end justify-center text-center p-4"
+	>
+		<h3
+			class="font-subheading text-4xl text-white font-medium drop-shadow shadow-black"
+		>
+			{name}
+		</h3>
+	</div>
+</div>

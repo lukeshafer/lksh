@@ -1,5 +1,24 @@
 ---
 import { Icon } from "astro-icon";
+
+import ProjectCarousel from "./ProjectCarousel";
+import ProjectCard from "./ProjectCard.astro";
+
+const WIDTH = 24;
+const GAP = 3;
+
+const projectList = [
+	{
+		name: "Fridge Magnets",
+		image: "/assets/fridgemagnets.png",
+		link: "https://github.com/lukeshafer/fridgemagnets",
+	},
+	{
+		name: "Fridge Magnets",
+		image: "/assets/fridgemagnets.png",
+		link: "https://github.com/lukeshafer/fridgemagnets",
+	},
+];
 ---
 
 <section
@@ -8,24 +27,21 @@ import { Icon } from "astro-icon";
 >
 	<h2 class="text-4xl font-display text-center col-span-2">My Projects</h2>
 	<div class="flex-1 grid items-center">
-		<!-- Image wrapper -->
-		<div
-			class="bg-gray-800 dark:bg-gray-200 bg-[url('/assets/fridgemagnets.png')] bg-cover h-60 w-96 overflow-clip"
-		>
-			<div
-				class="bg-gradient-to-b from-transparent via-gray-900/60 to-gray-900/80 h-full w-full align-text-bottom flex items-end justify-center text-center p-4"
-			>
-				<h3
-					class="font-subheading text-4xl text-white font-medium drop-shadow shadow-black"
-				>
-					Fridge Magnets
-				</h3>
-			</div>
-		</div>
+		<ProjectCarousel
+			client:visible
+			length={projectList.length}
+			moveDist={WIDTH + GAP}
+			gap={GAP}
+			>{
+				projectList.map(({ name, image, link }) => (
+					<ProjectCard name={name} image={image} link={link} width={WIDTH} />
+				))
+			}
+		</ProjectCarousel>
 	</div>
 	<div class="w-full text-center">
 		<a
-			href="#projects"
+			href="#blog"
 			class="p-4 text-center inline-flex w-max gap-1 flex-col items-center hover:text-sky-700 dark:hover:text-sky-200 transition-colors"
 		>
 			Blog<br /><Icon

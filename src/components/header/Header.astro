@@ -1,13 +1,38 @@
 ---
-import NavBar from "../nav/NavBar.astro";
-import Logo from "./Logo.astro";
-import Socials from "./Socials.astro";
+import NavItem from "./NavItem.astro";
+import Logo from "./Logo.svg.astro";
+import SocialLink from "./SocialLink.astro";
 ---
 
 <header
 	class="grid grid-cols-2 grid-rows-2 grid-flow-dense sm:grid-rows-1 sm:grid-cols-4 justify-between px-9 py-6 gap-4 top-0 fixed w-full bg-gradient-to-b from-gray-50 dark:from-gray-900 to-transparent"
 >
-	<Logo />
-	<NavBar />
-	<Socials />
+	<a href="/" class="inline-block w-min">
+		<Logo class="stroke-gray-800 dark:stroke-gray-200 z-10 h-8 w-8" />
+	</a>
+	<nav class="col-span-2">
+		<ul class="flex flex-row gap-10 justify-center">
+			<NavItem href="/">Home</NavItem>
+			<NavItem href="/projects">Projects</NavItem>
+			<NavItem href="/blog">Blog</NavItem>
+			<NavItem href="/about">About Me</NavItem>
+		</ul>
+	</nav>
+	<ul class="flex gap-5 justify-self-end">
+		<SocialLink
+			href="https://linkedin.com/in/lukealanshafer"
+			name="LinkedIn"
+			icon="fa-brands:linkedin"
+		/>
+		<SocialLink
+			href="https://twitter.com/lksh_dev"
+			name="Twitter"
+			icon="fa-brands:twitter"
+		/>
+		<SocialLink
+			href="https://github.com/lukeshafer"
+			name="GitHub"
+			icon="fa-brands:github"
+		/>
+	</ul>
 </header>
