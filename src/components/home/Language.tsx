@@ -34,7 +34,7 @@ export const Language = () => {
 	return (
 		<span
 			ref={span!}
-			class="inline-block h-full w-36 whitespace-nowrap rounded-xl bg-gray-200 py-1 px-3 font-mono text-xl dark:bg-gray-700"
+			class="inline-block min-h-[1.5em] w-36 whitespace-nowrap rounded-xl bg-gray-200 py-1 px-3 font-mono text-xl dark:bg-gray-700"
 		></span>
 	);
 };

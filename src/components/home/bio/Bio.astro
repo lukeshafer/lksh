@@ -1,25 +1,25 @@
 ---
 import { Image } from "@astrojs/image/components";
-import { Icon } from "astro-icon";
 import Link from "../../reusable/Link.astro";
+
+import headshot from "../../../assets/headshot-bw.png";
 ---
 
-<section
-	id="bio"
-	class="h-screen px-grow pt-20 flex flex-col gap-4 items-center snap-start"
->
-	<h2 class="text-4xl font-display text-center col-span-2">Who am I?</h2>
-	<div class="flex flex-1 flex-wrap justify-center gap-20 w-full items-center">
+<section id="bio" class="flex flex-col gap-6 items-center pt-32 -mt-32">
+	<h2 class="text-4xl font-display text-center">Who am I?</h2>
+	<div
+		class="flex flex-wrap gap-x-20 gap-y-10 w-full items-center place-content-center"
+	>
 		<!-- IMAGE AND SHORT BIO -->
-		<div class="flex flex-col w-min gap-4 justify-center items-center">
-			<Image
-				src={"src/assets/headshot-bw.png"}
-				width={400}
-				height={400}
-				alt="My headshot"
-				class="rounded-full shadow-sm shadow-black/10 w-60 bg-gray-700 dark:bg-gray-300 h-60 pt-5 object-contain"
-			/>
-			<p class="w-96">
+		<Image
+			src={headshot}
+			width={400}
+			height={400}
+			alt="My headshot"
+			class="rounded-full shadow-sm shadow-black/10 w-60 bg-gray-700 dark:bg-gray-300 h-60 pt-5 object-contain text-white dark:text-black text-center flex items-center justify-center"
+		/>
+		<div class="grid gap-4">
+			<p class="w-80">
 				I love building things! I try to bring a <strong
 					class="text-sky-700 dark:text-sky-300"
 				>
@@ -27,22 +27,7 @@ import Link from "../../reusable/Link.astro";
 				</strong> to my projects. My goal as a developer is to focus on great user
 				experiences which don't compromise on accessibility.
 			</p>
-			<div class="w-full">
-				<Link href="/about" caret class="font-subheading">Learn more</Link>
-			</div>
+			<Link href="/about" caret class="font-subheading">Learn more</Link>
 		</div>
-	</div>
-	<div class="w-full text-center">
-		<a
-			href="#projects"
-			class="p-4 text-center inline-flex w-max gap-1 flex-col items-center hover:text-sky-700 dark:hover:text-sky-200 transition-colors"
-		>
-			Tech<br /><Icon
-				name="bi:arrow-down-circle-fill"
-				class="w-12"
-				height={30}
-				width={30}
-			/>
-		</a>
 	</div>
 </section>

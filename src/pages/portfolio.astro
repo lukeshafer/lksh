@@ -1,0 +1,75 @@
+---
+import { projects } from '../data/projects'
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Icon from 'astro-icon'
+---
+
+<BaseLayout title="Portfolio | Luke Shafer">
+	<main
+		class="w-full relative flex px-grow my-12 flex-col gap-12 justify-center group">
+		<h2
+			id="portfolio-heading"
+			class="text-5xl font-display text-center transition-opacity duration-300">
+			My Portfolio
+		</h2>
+		<ul class="flex flex-col gap-10">
+			{
+				projects.map((project) => (
+					<li class="flex snap-center flex-wrap items-center gap-x-6 gap-y-2 transition-all duration-500">
+						<h3 class="font-display text-4xl font-light">{project.name}</h3>
+						<div class="flex items-center gap-4">
+							<time
+								datetime={project.year}
+								class="font-subheading text-3xl text-sky-600 opacity-70 dark:text-sky-300">
+								{project.year}
+							</time>
+							{project.url ? (
+								<a
+									class="text-gray-400  hover:text-gray-900 dark:text-gray-600 hover:dark:text-gray-50"
+									href={project.url}>
+									<div class="flex items-center gap-1">
+										<Icon
+											size={16}
+											class="text-inherit w-full"
+											name="fa-solid:link"
+										/>
+										<div class="m-0 h-full pt-1 underline">Link</div>
+									</div>
+								</a>
+							) : (
+								''
+							)}
+							{project.repo ? (
+								<a
+									class="text-gray-400  hover:text-gray-900 dark:text-gray-600 hover:dark:text-gray-50"
+									href={project.repo}>
+									<div class="flex items-center gap-1">
+										<Icon
+											size={16}
+											class="text-inherit w-full"
+											name="fa-brands:git-alt"
+										/>
+										<div class="m-0 h-full pt-1 underline">GitHub</div>
+									</div>
+								</a>
+							) : (
+								''
+							)}
+						</div>
+						<ul class="flex w-full flex-wrap gap-y-1 gap-x-2">
+							<li class="bg-sky-600 py-1 px-2 font-mono text-xs text-gray-50 dark:bg-sky-300 dark:text-gray-900">
+								{project.category}
+							</li>
+							{project.tags.map((t) => (
+								<li
+									class={`bg-gray-300 py-1 px-2 font-mono text-xs dark:bg-gray-600`}>
+									{t}
+								</li>
+							))}
+						</ul>
+					</li>
+				))
+			}
+		</ul>
+	</main>
+</BaseLayout>

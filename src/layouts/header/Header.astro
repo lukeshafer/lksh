@@ -1,0 +1,39 @@
+---
+import NavItem from './NavItem.astro'
+import Logo from './Logo.svg.astro'
+import Icon from 'astro-icon'
+import Link from '../../components/reusable/Link.astro'
+---
+
+<header
+	class="grid grid-cols-2 grid-rows-2 sm:grid-cols-4 sm:grid-rows-1 grid-flow-dense justify-between px-9 py-6 fixed inset-x-0 top-0 z-50 bg-gradient-to-b from-gray-50 via-gray-50 dark:from-gray-900 dark:via-gray-900 to-transparent">
+	<Link
+		href="/"
+		noUnderline
+		class="stroke-sky-800 dark:stroke-sky-100 hover:stroke-sky-600 hover:dark:stroke-sky-400 focus:stroke-sky-600 focus:dark:stroke-sky-400">
+		<Logo class="z-10 h-8 w-8" />
+	</Link>
+	<nav class="col-span-2">
+		<ul class="flex flex-row gap-10 justify-center">
+			<NavItem href="/">Home</NavItem>
+			<NavItem href="/portfolio">Portfolio</NavItem>
+			<NavItem href="/blog">Blog</NavItem>
+			<NavItem href="/about">About Me</NavItem>
+		</ul>
+	</nav>
+	<ul class="flex gap-2 justify-self-end">
+		<Link href="https://linkedin.com/in/lukealanshafer" noUnderline>
+			<Icon class="h-5" name="fa-brands:linkedin" />
+			<span class="visibly-hidden">LinkedIn</span>
+		</Link>
+		<Link href="https://twitter.com/lksh_dev" noUnderline>
+			<Icon class="h-5" name="fa-brands:twitter" />
+			<span class="visibly-hidden">Twitter</span>
+		</Link>
+		<Link href="https://github.com/lukeshafer" noUnderline>
+			<Icon class="h-5" name="fa-brands:github" />
+			<span class="visibly-hidden">GitHub</span>
+		</Link>
+	</ul>
+</header>
+<div hidden class="h-32 block"></div>

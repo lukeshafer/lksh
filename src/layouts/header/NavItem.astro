@@ -1,0 +1,48 @@
+---
+import Link from '../../components/reusable/Link.astro'
+
+export interface Props {
+	href: string
+}
+
+const { href } = Astro.props as Props
+
+const page = '/' + Astro.url.pathname.split('/')[1]
+const referer = Astro.request.headers.get('referer')
+let fromPage = ''
+if (referer) {
+	const url = new URL(referer ?? '')
+	fromPage = url.pathname
+}
+
+const active = href === page
+const from = href === fromPage
+---
+
+<li class:list={[{ active, from }]}>
+	<Link
+		href={href}
+		class="font-mono text-sm text-inherit whitespace-nowrap group">
+		<slot />
+	</Link>
+</li>
+
+<style>
+	.active {
+		font-weight: 600;
+		animation: activate 200ms forwards;
+	}
+	.from {
+		font-weight: 300;
+		animation: activate 200ms reverse forwards;
+	}
+
+	@keyframes activate {
+		0% {
+			font-weight: 300;
+		}
+		100% {
+			font-weight: 600;
+		}
+	}
+</style>

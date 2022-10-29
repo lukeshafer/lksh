@@ -1,55 +1,63 @@
 ---
-import { Icon } from "astro-icon";
-
-import ProjectCarousel from "./ProjectCarousel";
 import ProjectCard from "./ProjectCard.astro";
-
-const WIDTH = 24;
-const GAP = 3;
 
 const projectList = [
 	{
 		name: "Fridge Magnets",
-		image: "/assets/fridgemagnets.png",
+		image: "assets/fridgemagnets.png",
 		link: "https://github.com/lukeshafer/fridgemagnets",
 	},
 	{
-		name: "Fridge Magnets",
-		image: "/assets/fridgemagnets.png",
-		link: "https://github.com/lukeshafer/fridgemagnets",
+		name: "Off Center",
+		image: "assets/offcenter.png",
+		link: "https://github.com/lukeshafer/offcenter",
 	},
 ];
 ---
 
-<section
-	id="projects"
-	class="h-screen px-grow pt-32 flex flex-col gap-4 items-center snap-start"
->
-	<h2 class="text-4xl font-display text-center col-span-2">My Projects</h2>
-	<div class="flex-1 grid items-center">
-		<ProjectCarousel
-			client:visible
-			length={projectList.length}
-			moveDist={WIDTH + GAP}
-			gap={GAP}
-			>{
-				projectList.map(({ name, image, link }) => (
-					<ProjectCard name={name} image={image} link={link} width={WIDTH} />
-				))
-			}
-		</ProjectCarousel>
-	</div>
-	<div class="w-full text-center">
-		<a
-			href="#blog"
-			class="p-4 text-center inline-flex w-max gap-1 flex-col items-center hover:text-sky-700 dark:hover:text-sky-200 transition-colors"
-		>
-			Blog<br /><Icon
-				name="bi:arrow-down-circle-fill"
-				class="w-12"
-				height={30}
-				width={30}
-			/>
-		</a>
-	</div>
+<section id="projects" tabindex="0">
+	<h2>Projects</h2>
+	<ul>
+		{
+			projectList.map((project) => (
+				<li style={`--bg: url(${project.image})`}>
+					<a href={project.link}>{project.name}</a>
+				</li>
+			))
+		}
+	</ul>
 </section>
+
+<style>
+	#projects {
+		display: flex;
+		flex-flow: column;
+		gap: 1rem;
+		align-items: center;
+	}
+
+	h2 {
+		font-size: 2.25rem;
+		font-family: var(--ls-f-display);
+		text-align: center;
+	}
+
+	ul {
+		display: flex;
+		overflow-x: scroll;
+		gap: 4rem;
+		width: 24rem;
+	}
+
+	li {
+		background-image: var(--bg);
+		display: inline-block;
+		height: 20rem;
+		width: 30rem;
+	}
+
+	a {
+		display: block;
+		width: 100%;
+	}
+</style>

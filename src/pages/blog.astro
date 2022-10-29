@@ -1,19 +1,28 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-const posts = await Astro.glob('./blog/*.md');
+import Link from '../components/reusable/Link.astro'
+import BaseLayout from '../layouts/BaseLayout.astro'
+let posts = await Astro.glob('./blog/*.mdx')
+
+posts = [...posts, ...posts, ...posts]
+posts = [...posts, ...posts, ...posts]
+posts = [...posts, ...posts, ...posts]
 ---
 
 <BaseLayout title="Blog | Luke Shafer">
-	<div>
-		<h1>My blog</h1>
-		<p>I write the things on my mind sometimes!</p>
-		{
-			posts.map(({ frontmatter }) => (
-				<>
-					<h2>{frontmatter.title}</h2>
-					<a href={frontmatter.url}>Read</a>
-				</>
-			))
-		}
-	</div>
+	<main class="px-grow my-6">
+		<h1 class="text-4xl font-display text-center">My blog</h1>
+		<ul
+			class="flex flex-wrap p-4 py-10 gap-8 lg:gap-16 justify-center justify-items-center w-full">
+			{
+				posts.map(({ frontmatter, url }) => (
+					<li class="h-32 w-48 bg-sky-100 p-4 shadow-xl shadow-gray-700/10 md:h-40 md:w-60 xl:h-60 xl:w-80">
+						<h2 class="text-center font-subheading text-xl">
+							{frontmatter.title}
+						</h2>
+						<Link href={url ?? '#'}>Read</Link>
+					</li>
+				))
+			}
+		</ul>
+	</main>
 </BaseLayout>

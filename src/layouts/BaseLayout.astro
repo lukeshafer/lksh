@@ -1,49 +1,76 @@
 ---
 // COMPONENTS
-import Footer from "../components/footer/Footer.astro";
-import Header from "../components/header/Header.astro";
+import Footer from './footer/Footer.astro'
+import Header from './header/Header.astro'
 
 // FONTS
-import "@fontsource/raleway/variable.css";
-import "@fontsource/work-sans/variable.css";
-import "@fontsource/jetbrains-mono/variable.css";
-import "@fontsource/khula";
+import '@fontsource/raleway/variable.css'
+import '@fontsource/work-sans/variable.css'
+import '@fontsource/jetbrains-mono/variable.css'
+import '@fontsource/khula'
 
 // STYLES
 // import '../styles/better-normalize.css';
 // import '../styles/reset.local.css';
 // import '../styles/presets.css';
-import "../app.css";
+import '../app.css'
 
 // PROPS
 export interface Props {
-	title: string;
+	title: string
 }
 
-const { title } = Astro.props;
+const { title } = Astro.props
 ---
 
-<html
-	lang="en"
-	style="overflow-x:hidden"
-	class="snap-y snap-mandatory scroll-smooth"
->
+<html lang="en" style="overflow-x:hidden" class="scroll-smooth font-body">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title ? title : "Luke Shafer"}</title>
+		<title>{title ? title : 'Luke Shafer'}</title>
 	</head>
 	<body
-		class="h-screen bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-50 bg-radial-at-bl from-sky-200 via-gray-100 to-white dark:from-gray-800 dark:via-gray-800 dark:to-black bg-fixed"
-	>
+		class="h-screen bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-50 bg-radial-at-bl from-sky-200 via-gray-100 to-white dark:from-gray-800 dark:via-gray-800 dark:to-black bg-fixed selection:bg-sky-600 selection:dark:bg-sky-400 selection:text-gray-50 selection:dark:text-gray-900">
 		<Header />
 		<slot />
 		<Footer />
 		<style>
-			:root {
+			:global(:root) {
 				font-size: clamp(85%, 0.2rem + 1.3vw, 150%);
+
+				/*GLOBAL FONT VARIABLES*/
+				--ls-sans-stack: ui-sans-serif, system-ui, -apple-system,
+					BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+					'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+					'Segoe UI Symbol', 'Noto Color Emoji';
+				--ls-f-display: RalewayVariable, var(--ls-sans-stack);
+				--ls-f-subheading: 'Work SansVariable', var(--ls-sans-stack);
+				--ls-f-body: 'Khula', var(--ls-sans-stack);
+				--ls-f-mono: 'JetBrains MonoVariable', ui-monospace, SFMono-Regular,
+					Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+
+				--ls-c-primary-light: #0369a1;
+				--ls-c-primary-dark: #38bdf8;
+				--ls-c-link-light: #0c4a6e;
+				--ls-c-link-dark: #e0f2fe;
+
+				/*GLOBAL COLOR VARIABLES*/
+				--ls-c-primary: var(--ls-c-primary-light);
+				--ls-c-link: var(--ls-c-link-light);
+				--ls-c-text: #0f172a;
+				--ls-c-base: #f8fafc;
+				--ls-c-text-faint: #334155;
+			}
+			@media (prefers-color-scheme: dark) {
+				:global(:root) {
+					--ls-c-primary: var(--ls-c-primary-dark);
+					--ls-c-link: var(--ls-c-link-dark);
+					--ls-c-text: #f8fafc;
+					--ls-c-base: #0f172a;
+					--ls-c-text-faint: #cbd5e1;
+				}
 			}
 		</style>
 	</body>

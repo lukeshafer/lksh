@@ -1,28 +1,38 @@
 ---
-import BaseLayout from './BaseLayout.astro';
-import type { MarkdownLayoutProps } from 'astro';
+import { z } from 'zod'
+import type { MDXLayoutProps } from 'astro'
+
+import BaseLayout from './BaseLayout.astro'
 
 // PROPS
-type Props = MarkdownLayoutProps<{
-	title: string;
-	datePublished: Date;
-	author: string;
-}>;
-const {
-	frontmatter: { title, datePublished, author },
-} = Astro.props as Props;
+const frontmatterSchema = z.object({
+	title: z.string(),
+	datePublished: z.string().regex(/[0-9]{4}(-[0-9]{1,2}){2}/g),
+	author: z.string(),
+	authorLink: z.string(),
+})
+
+const props = Astro.props as MDXLayoutProps<Record<string, unknown>>
+
+const { title, author, authorLink, datePublished } = frontmatterSchema.parse(
+	props.frontmatter
+)
 ---
 
 <BaseLayout title={title}>
 	<article>
 		<header>
-			<h1>{title}</h1>
+			<h1 class="text-5xl font-display">{title}</h1>
 			<div>
-				<address>by <a rel="author" href="#">Luke Shafer</a></address> on
-				<time datetime="2022-09-23">September 23, 2022</time>
+				<address>
+					<a rel="author" href={authorLink} class="underline underline-offset-2"
+						>{author}</a
+					>
+				</address>
+				<time datetime={datePublished}>September 23, 2022</time>
 			</div>
 		</header>
-		<main>
+		<main class="prose prose-h2:font-subheading prose-h2:font-normal">
 			<slot />
 		</main>
 	</article>
