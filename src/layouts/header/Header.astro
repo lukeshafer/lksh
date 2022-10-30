@@ -12,6 +12,7 @@ import Link from '../../components/reusable/Link.astro'
 		noUnderline
 		class="stroke-sky-800 dark:stroke-sky-100 hover:stroke-sky-600 hover:dark:stroke-sky-400 focus:stroke-sky-600 focus:dark:stroke-sky-400">
 		<Logo class="z-10 h-8 w-8" />
+		<span class="visibly-hidden">Logo</span>
 	</Link>
 	<nav class="col-span-2">
 		<ul class="flex flex-row gap-10 justify-center">
@@ -21,18 +22,24 @@ import Link from '../../components/reusable/Link.astro'
 		</ul>
 	</nav>
 	<ul class="flex gap-2 justify-self-end">
-		<Link href="https://linkedin.com/in/lukealanshafer" noUnderline>
-			<Icon class="h-5" name="fa-brands:linkedin" />
-			<span class="visibly-hidden">LinkedIn</span>
-		</Link>
-		<Link href="https://twitter.com/lksh_dev" noUnderline>
-			<Icon class="h-5" name="fa-brands:twitter" />
-			<span class="visibly-hidden">Twitter</span>
-		</Link>
-		<Link href="https://github.com/lukeshafer" noUnderline>
-			<Icon class="h-5" name="fa-brands:github" />
-			<span class="visibly-hidden">GitHub</span>
-		</Link>
+		<li>
+			<Link href="https://linkedin.com/in/lukealanshafer" noUnderline>
+				<Icon class="h-5" name="fa-brands:linkedin" />
+				<span class="visibly-hidden">LinkedIn</span>
+			</Link>
+		</li>
+		<li>
+			<Link href="https://twitter.com/lksh_dev" noUnderline>
+				<Icon class="h-5" name="fa-brands:twitter" />
+				<span class="visibly-hidden">Twitter</span>
+			</Link>
+		</li>
+		<li>
+			<Link href="https://github.com/lukeshafer" noUnderline>
+				<Icon class="h-5" name="fa-brands:github" />
+				<span class="visibly-hidden">GitHub</span>
+			</Link>
+		</li>
 	</ul>
 </header>
 <div hidden class="h-32 block"></div>
