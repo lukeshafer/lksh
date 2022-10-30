@@ -1,76 +1,36 @@
 ---
-import { z } from 'zod'
 import type { MDXLayoutProps } from 'astro'
+import Link from '../components/reusable/Link.astro'
+import { validateFrontmatter } from '../pages/blog/blogpost'
 
 import BaseLayout from './BaseLayout.astro'
 
-// PROPS
-const frontmatterSchema = z.object({
-	title: z.string(),
-	datePublished: z.string().regex(/[0-9]{4}(-[0-9]{1,2}){2}/g),
-	author: z.string(),
-	authorLink: z.string(),
-})
-
 const props = Astro.props as MDXLayoutProps<Record<string, unknown>>
-
-const { title, author, authorLink, datePublished } = frontmatterSchema.parse(
-	props.frontmatter
-)
+const validationResult = validateFrontmatter(props.frontmatter)
+if (!validationResult.success) throw new Error('Invalid post')
+const { title, authorLink, author, datePublished } = validationResult.data
 ---
 
 <BaseLayout title={title}>
-	<article>
-		<header>
+	<main
+		class="justify-items-center gap-12 auto-rows-min px-grow max-w-5xl mx-auto pb-16">
+		<header class="grid gap-2 pb-6">
 			<h1 class="text-5xl font-display">{title}</h1>
-			<div>
+			<div
+				class="font-subheading font-light text-lg justify-self-end flex items-end">
+				<time datetime={datePublished} class="opacity-80">
+					Published {
+						new Date(datePublished).toDateString().split(' ').slice(1).join(' ')
+					}
+				</time>
 				<address>
-					<a rel="author" href={authorLink} class="underline underline-offset-2"
-						>{author}</a
-					>
+					<Link rel="author" href={authorLink}>by {author}</Link>
 				</address>
-				<time datetime={datePublished}>September 23, 2022</time>
 			</div>
 		</header>
-		<main class="prose prose-h2:font-subheading prose-h2:font-normal">
+		<article
+			class="mx-auto prose prose-p:text-base prose-h2:font-subheading prose-h2:font-normal dark:prose-invert prose-sky prose-p:leading-5">
 			<slot />
-		</main>
-	</article>
+		</article>
+	</main>
 </BaseLayout>
-
-<style>
-	article {
-		display: grid;
-		width: 100%;
-		grid-template-columns: min(35rem, 100%);
-		grid-auto-rows: min-content;
-		justify-content: center;
-		min-height: 100%;
-		gap: 3xl;
-	}
-
-	header {
-		display: grid;
-		gap: sm;
-
-		& div {
-			font-family: subheading;
-			font-weight: light;
-			font-size: lg;
-		}
-	}
-
-	h1 {
-		font-size: 5xl;
-	}
-
-	main {
-		display: grid;
-		gap: sm;
-
-		& :global(p) {
-			text-indent: 2rem;
-			line-height: 120%;
-		}
-	}
-</style>

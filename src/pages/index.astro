@@ -1,23 +1,15 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import Hero from "../components/home/Hero.astro";
-import Bio from "../components/home/bio/Bio.astro";
-import Tech from "../components/home/tech/Tech.astro";
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Hero from '../components/home/Hero.astro'
+import Bio from '../components/home/bio/Bio.astro'
+import Tech from '../components/home/tech/Tech.astro'
 /*import Projects from "../components/home/projects/Projects.astro";*/
 ---
 
 <BaseLayout title="Luke Shafer">
-	<main>
+	<main class="grid gap-32 mb-16">
 		<Hero />
 		<Bio />
 		<Tech />
 	</main>
 </BaseLayout>
-
-<style>
-	main {
-		display: grid;
-		gap: 8rem;
-		margin-bottom: 4rem;
-	}
-</style>

@@ -1,15 +1,13 @@
 ---
-import { Image } from "@astrojs/image/components";
-import Link from "../../reusable/Link.astro";
+import { Image } from '@astrojs/image/components'
 
-import headshot from "../../../assets/headshot-bw.png";
+import headshot from '../../../assets/headshot-bw.png'
 ---
 
 <section id="bio" class="flex flex-col gap-6 items-center pt-32 -mt-32">
 	<h2 class="text-4xl font-display text-center">Who am I?</h2>
 	<div
-		class="flex flex-wrap gap-x-20 gap-y-10 w-full items-center place-content-center"
-	>
+		class="flex flex-wrap gap-x-20 gap-y-10 w-full items-center place-content-center">
 		<!-- IMAGE AND SHORT BIO -->
 		<Image
 			src={headshot}
@@ -20,14 +18,11 @@ import headshot from "../../../assets/headshot-bw.png";
 		/>
 		<div class="grid gap-4">
 			<p class="w-80">
-				I love building things! I try to bring a <strong
-					class="text-sky-700 dark:text-sky-300"
-				>
-					creative touch
-				</strong> to my projects. My goal as a developer is to focus on great user
-				experiences which don't compromise on accessibility.
+				I'm Luke! I'm a software engineer experienced in all things web and
+				Javascript. <strong class="text-sky-700 dark:text-sky-300"
+					>I'm a creator at heart</strong
+				>, and spend my free time working on personal projects or art!
 			</p>
-			<Link href="/about" caret class="font-subheading">Learn more</Link>
 		</div>
 	</div>
 </section>

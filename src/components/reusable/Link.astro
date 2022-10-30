@@ -11,6 +11,7 @@ export type Props = {
 		| Iterable<any>
 	target?: '_blank' | '_self'
 	noUnderline?: boolean
+	rel?: string
 }
 
 const {
@@ -20,6 +21,7 @@ const {
 	classList,
 	target,
 	noUnderline,
+	rel,
 } = Astro.props as Props
 ---
 
@@ -39,7 +41,7 @@ const {
 		} border-b border-solid hover:border-sky-600 hover:dark:border-sky-400 focus:border-sky-600 focus:dark:border-sky-400 transition-[padding,margin,border-color] hover:text-sky-600 hover:dark:text-sky-400 focus:text-sky-600 focus:dark:text-sky-400 outline-none `}
 		href={href}
 		class:list={classList ? classList : ''}
-		rel="prefetch"
+		rel={rel ? `${rel} prefetch` : 'prefetch'}
 		target={target}
 		><slot />
 	</a>

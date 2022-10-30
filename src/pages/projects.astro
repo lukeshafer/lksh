@@ -4,19 +4,18 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 import Icon from 'astro-icon'
 ---
 
-<BaseLayout title="Portfolio | Luke Shafer">
+<BaseLayout title="Projects | Luke Shafer">
 	<main
 		class="w-full relative flex px-grow my-12 flex-col gap-12 justify-center group">
-		<h2
-			id="portfolio-heading"
+		<h1
 			class="text-5xl font-display text-center transition-opacity duration-300">
-			My Portfolio
-		</h2>
+			My Projects
+		</h1>
 		<ul class="flex flex-col gap-10">
 			{
 				projects.map((project) => (
 					<li class="flex snap-center flex-wrap items-center gap-x-6 gap-y-2 transition-all duration-500">
-						<h3 class="font-display text-4xl font-light">{project.name}</h3>
+						<h2 class="font-display text-4xl font-light">{project.name}</h2>
 						<div class="flex items-center gap-4">
 							<time
 								datetime={project.year}
@@ -27,10 +26,9 @@ import Icon from 'astro-icon'
 								<a
 									class="text-gray-400  hover:text-gray-900 dark:text-gray-600 hover:dark:text-gray-50"
 									href={project.url}>
-									<div class="flex items-center gap-1">
+									<div class="flex justify-items-start gap-1">
 										<Icon
-											size={16}
-											class="text-inherit w-full"
+											class="text-inherit h-4 w-4 self-center"
 											name="fa-solid:link"
 										/>
 										<div class="m-0 h-full pt-1 underline">Link</div>
@@ -43,10 +41,9 @@ import Icon from 'astro-icon'
 								<a
 									class="text-gray-400  hover:text-gray-900 dark:text-gray-600 hover:dark:text-gray-50"
 									href={project.repo}>
-									<div class="flex items-center gap-1">
+									<div class="flex gap-1">
 										<Icon
-											size={16}
-											class="text-inherit w-full"
+											class="text-inherit h-4 w-4 self-center"
 											name="fa-brands:git-alt"
 										/>
 										<div class="m-0 h-full pt-1 underline">GitHub</div>

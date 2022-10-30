@@ -1,27 +1,38 @@
 ---
 import Link from '../components/reusable/Link.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
+import { validateFrontmatter } from './blog/blogpost'
 let posts = await Astro.glob('./blog/*.mdx')
-
-posts = [...posts, ...posts, ...posts]
-posts = [...posts, ...posts, ...posts]
-posts = [...posts, ...posts, ...posts]
 ---
 
 <BaseLayout title="Blog | Luke Shafer">
 	<main class="px-grow my-6">
-		<h1 class="text-4xl font-display text-center">My blog</h1>
-		<ul
-			class="flex flex-wrap p-4 py-10 gap-8 lg:gap-16 justify-center justify-items-center w-full">
+		<h1 class="text-5xl font-display text-center">My blog</h1>
+		<ul class="p-4 py-10 gap-8 w-full flex flex-wrap justify-center">
 			{
-				posts.map(({ frontmatter, url }) => (
-					<li class="h-32 w-48 bg-sky-100 p-4 shadow-xl shadow-gray-700/10 md:h-40 md:w-60 xl:h-60 xl:w-80">
-						<h2 class="text-center font-subheading text-xl">
-							{frontmatter.title}
-						</h2>
-						<Link href={url ?? '#'}>Read</Link>
-					</li>
-				))
+				posts.map(
+					({ frontmatter, url }) =>
+						validateFrontmatter(frontmatter).success && (
+							<li class="w-96 items-center  border-sky-400">
+								<h2 class="font-subheading text-2xl font-medium">
+									{frontmatter.title}
+								</h2>
+								<time
+									datetime={frontmatter.datePublished}
+									class="w-max whitespace-nowrap opacity-70">
+									{new Date(frontmatter.datePublished)
+										.toDateString()
+										.split(' ')
+										.slice(1)
+										.join(' ')}
+								</time>
+								<p class="px-2 pt-3">{frontmatter.description}</p>
+								<Link href={url ?? '#'} class="text-sm">
+									Read more...
+								</Link>
+							</li>
+						)
+				)
 			}
 		</ul>
 	</main>

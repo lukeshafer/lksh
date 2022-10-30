@@ -16,7 +16,7 @@ const linkbase = 'https://github.com/lukeshafer?tab=repositories&q='
 			// Merge stackicon into this file, fix link
 			[...stackList].map(([tech, { name, tag, c1, c2 }]) => (
 				<li
-					class="w-24 text-center font-mono text-sm [&:nth-child(6n+1)]:mr-[50%] [&:nth-child(6n+2)]:mr-[50%] [&:nth-child(6n+3)]:mr-[50%] [&:nth-child(6n+4)]:ml-[50%] [&:nth-child(6n+5)]:ml-[50%] [&:nth-child(6n)]:ml-[50%]"
+					class="w-24 text-center font-mono text-sm "
 					style={`--ls-stack-c1: ${c1}; --ls-stack-c2: ${c2};)}`}>
 					<a href={linkbase + tag} tabindex="-1" />
 					<Link
