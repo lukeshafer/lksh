@@ -5,20 +5,22 @@ import Link from '../../components/reusable/Link.astro'
 <footer
 	class="w-full p-12 bg-gray-50 dark:bg-gray-900 grid gap-8 justify-items-center">
 	<ul class="flex flex-wrap gap-3 justify-center">
-		<li><Link href="/blog">Blog</Link></li>
-		<li><Link href="/contact">Contact</Link></li>
-		<li><Link href="/projects">Projects</Link></li>
-		<li><Link href="https://twitter.com/lksh_dev">Twitter</Link></li>
-		<li><Link href="https://github.com/lukeshafer">GitHub</Link></li>
-		<li><Link href="https://linkedin.com/in/lukealanshafer">LinkedIn</Link></li>
+		<li><Link><a href="/blog">Blog</a></Link></li>
+		<li><Link><a href="/contact">Contact</a></Link></li>
+		<li><Link><a href="/projects">Projects</a></Link></li>
+		<li><Link><a href="https://twitter.com/lksh_dev">Twitter</a></Link></li>
+		<li><Link><a href="https://github.com/lukeshafer">GitHub</a></Link></li>
+		<li>
+			<Link><a href="https://linkedin.com/in/lukealanshafer">LinkedIn</a></Link>
+		</li>
 	</ul>
 	<p>
-		<span class="-mx-2">Built with</span><Link href="https://astro.build/"
-			>Astro.</Link
-		>
-		<span class="-mx-2">Hosted on</span><Link href="https://vercel.com/"
-			>Vercel.</Link
-		>
+		<span class="-mx-2">Built with</span><Link>
+			<a href="https://astro.build/">Astro.</a>
+		</Link>
+		<span class="-mx-2">Hosted on</span><Link
+			><a href="https://vercel.com/">Vercel.</a>
+		</Link>
 	</p>
 	<p class="text-gray-500">
 		Copyright {new Date().getFullYear()} Luke Shafer. Contact at <a

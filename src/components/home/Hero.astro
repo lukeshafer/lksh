@@ -1,13 +1,14 @@
 ---
 import { Icon } from 'astro-icon'
+import { ContactDialog, OpenContactDialogButton } from './Contact'
 import Link from '../reusable/Link.astro'
 import { Language } from './Language'
 ---
 
 <section
 	id="hero"
-	class="h-[100svh] h-screen -mt-32 px-grow flex flex-col gap-16">
-	<div id="heading" class="flex-[2] grid gap-2 content-end">
+	class="h-[calc(100svh-8rem)] h-[calc(100vh-8rem)] px-grow flex flex-col gap-16">
+	<div id="heading" class="flex-1 flex grid gap-2 content-end">
 		<h1 class="font-display text-6xl font-normal top-0">
 			Hi, I'm{' '}
 			<span class="inline-block text-sky-600 dark:text-sky-300">
@@ -20,10 +21,22 @@ import { Language } from './Language'
 	</div>
 	<ul class="flex-1 grid content-start gap-2 text-xl">
 		<li>
-			<Link href="#" caret class="font-subheading">Download my resume</Link>
+			<Link>
+				<a
+					href="/resume.pdf"
+					download="Resume-Luke-Shafer.pdf"
+					class="font-subheading">Download my resume</a
+				>
+			</Link>
 		</li>
 		<li>
-			<Link href="#" caret class="font-subheading">Get in touch</Link>
+			<ContactDialog client:load>
+				<Link
+					><OpenContactDialogButton client:load
+						><span class="font-subheading">Get in touch</span>
+					</OpenContactDialogButton>
+				</Link>
+			</ContactDialog>
 		</li>
 	</ul>
 	<div class="w-full text-center">

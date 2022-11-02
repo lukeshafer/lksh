@@ -1,57 +1,30 @@
 ---
 export type Props = {
-	href: string
-	caret?: boolean
-	class?: string
-	classList?:
-		| string
-		| Record<string, boolean>
-		| Record<any, any>
-		| Iterable<string>
-		| Iterable<any>
-	target?: '_blank' | '_self'
 	noUnderline?: boolean
-	rel?: string
 }
 
-const {
-	href,
-	caret,
-	class: className,
-	classList,
-	target,
-	noUnderline,
-	rel,
-} = Astro.props as Props
+const { noUnderline } = Astro.props as Props
 ---
 
 <span>
-	{
-		caret && (
-			<span
-				aria-hidden="true"
-				class="inline-block text-sky-800 dark:text-sky-100">
-				{'> '}
-			</span>
-		)
-	}
-	<a
-		class={`${className} text-sky-900 dark:text-sky-50 inline-block relative pt-1 mx-2 px-0 hover:px-2 hover:mx-0 focus:px-2 focus:mx-0 duration-100 delay-200 hover:delay-[0ms] focus:delay-[0ms] ${
+	<span
+		id="container"
+		class={`text-sky-900 dark:text-sky-50 inline-block relative pt-1 mx-2 px-0 hover:px-2 hover:mx-0 focus-within:px-2 focus-within:mx-0 duration-100 delay-200 hover:delay-[0ms] focus-within:delay-[0ms] ${
 			noUnderline
 				? 'border-transparent pb-px'
 				: 'border-sky-800 dark:border-sky-100'
-		} border-b border-solid hover:border-sky-600 hover:dark:border-sky-400 focus:border-sky-600 focus:dark:border-sky-400 transition-[padding,margin,border-color] hover:text-sky-600 hover:dark:text-sky-400 focus:text-sky-600 focus:dark:text-sky-400 outline-none `}
-		href={href}
-		class:list={classList ? classList : ''}
-		rel={rel ? `${rel} prefetch` : 'prefetch'}
-		target={target}
-		><slot />
-	</a>
+		} border-b border-solid hover:border-sky-600 hover:dark:border-sky-400 focus-within:border-sky-600 focus-within:dark:border-sky-400 transition-[padding,margin,border-color] hover:text-sky-600 hover:dark:text-sky-400 focus-within:text-sky-600 focus-within:dark:text-sky-400 outline-none `}>
+		<slot />
+	</span>
 </span>
 
 <style>
-	a::before,
-	a::after {
+	#container:focus-within :global(*) {
+		outline: none;
+	}
+
+	#container::before,
+	#container::after {
 		/*[>layout, size<]*/
 		--b-width: 1px;
 		display: inline-block;
@@ -66,22 +39,23 @@ const {
 		border-color: inherit;
 		border-style: inherit;
 		content: ' ';
+		z-index: -1;
 	}
 
-	a::before {
+	#container::before {
 		left: 0;
 		border-left-width: var(--b-width);
 	}
 
-	a::after {
+	#container::after {
 		right: 0;
 		border-right-width: var(--b-width);
 	}
 
-	a:hover::before,
-	a:focus::before,
-	a:hover::after,
-	a:focus::after {
+	#container:hover::before,
+	#container:focus-within::before,
+	#container:hover::after,
+	#container:focus-within::after {
 		transition: height 100ms 100ms, width 100ms 200ms;
 		height: 100%;
 		width: 51%;

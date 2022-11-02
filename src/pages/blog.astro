@@ -27,8 +27,10 @@ let posts = await Astro.glob('./blog/*.mdx')
 										.join(' ')}
 								</time>
 								<p class="px-2 pt-3">{frontmatter.description}</p>
-								<Link href={url ?? '#'} class="text-sm">
-									Read more...
+								<Link>
+									<a href={url ?? '#'} class="text-sm">
+										Read more...
+									</a>
 								</Link>
 							</li>
 						)

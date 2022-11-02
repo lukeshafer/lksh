@@ -20,10 +20,12 @@ const from = href === fromPage
 ---
 
 <li class:list={[{ active, from }]}>
-	<Link
-		href={href}
-		class="font-mono text-sm text-inherit whitespace-nowrap group">
-		<slot />
+	<Link>
+		<a
+			href={href}
+			class="font-mono text-sm text-inherit whitespace-nowrap group">
+			<slot />
+		</a>
 	</Link>
 </li>
 

@@ -15,17 +15,20 @@ specifiers:
   '@mavrin/stylelint-declaration-use-css-custom-properties': github:mavrin/stylelint-declaration-use-css-custom-properties
   '@tailwindcss/typography': ^0.5.7
   '@tokencss/astro': ^0.0.4
+  '@types/nodemailer': ^6.4.6
   '@types/prettier': ^2.7.1
   astro: ^1.5.2
   astro-icon: ^0.7.3
   autoprefixer: ^10.4.12
   css-has-pseudo: ^4.0.1
+  nodemailer: ^6.8.0
   normalize.css: ^8.0.1
   postcss-dark-theme-class: ^0.7.3
   postcss-easing-gradients: ^3.0.1
   postcss-nesting: ^10.2.0
   prettier-plugin-astro: ^0.6.0
   prettier-plugin-tailwindcss: ^0.1.13
+  solid-headless: ^0.13.0
   solid-icons: ^1.0.2
   solid-js: ^1.5.9
   stylelint: ^14.12.0
@@ -47,9 +50,11 @@ dependencies:
   astro: 1.5.2
   astro-icon: 0.7.3
   autoprefixer: 10.4.12_postcss@8.4.18
+  nodemailer: 6.8.0
   normalize.css: 8.0.1
   postcss-easing-gradients: 3.0.1
   postcss-nesting: 10.2.0_postcss@8.4.18
+  solid-headless: 0.13.0_solid-js@1.5.9
   solid-icons: 1.0.2_solid-js@1.5.9
   solid-js: 1.5.9
   tailwindcss: 3.2.0_postcss@8.4.18
@@ -63,6 +68,7 @@ devDependencies:
   '@fontsource/raleway': 4.5.10
   '@fontsource/work-sans': 4.5.12
   '@mavrin/stylelint-declaration-use-css-custom-properties': github.com/mavrin/stylelint-declaration-use-css-custom-properties/9ff91e9c564e8864571c5450136d8b76a63705ce_stylelint@14.12.0
+  '@types/nodemailer': 6.4.6
   '@types/prettier': 2.7.1
   css-has-pseudo: 4.0.1_postcss@8.4.18
   postcss-dark-theme-class: 0.7.3_postcss@8.4.18
@@ -1155,6 +1161,16 @@ packages:
     dependencies:
       '@types/unist': 2.0.6
     dev: false
+
+  /@types/node/18.11.9:
+    resolution: {integrity: sha512-CRpX21/kGdzjOpFsZSkcrXMGIBWMGNIHXXBVFSH+ggkftxg+XYP20TESbh+zFvFj3EQOl5byk0HTRn1IL6hbqg==}
+    dev: true
+
+  /@types/nodemailer/6.4.6:
+    resolution: {integrity: sha512-pD6fL5GQtUKvD2WnPmg5bC2e8kWCAPDwMPmHe/ohQbW+Dy0EcHgZ2oCSuPlWNqk74LS5BVMig1SymQbFMPPK3w==}
+    dependencies:
+      '@types/node': 18.11.9
+    dev: true
 
   /@types/normalize-package-data/2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
@@ -4379,6 +4395,11 @@ packages:
     resolution: {integrity: sha512-PiVXnNuFm5+iYkLBNeq5211hvO38y63T0i2KKh2KnUs3RpzJ+JtODFjkD8yjLwnDkTYF1eKXheUwdssR+NRZdg==}
     dev: false
 
+  /nodemailer/6.8.0:
+    resolution: {integrity: sha512-EjYvSmHzekz6VNkNd12aUqAco+bOkRe3Of5jVhltqKhEsjw/y0PYPJfp83+s9Wzh1dspYAkUW/YNQ350NATbSQ==}
+    engines: {node: '>=6.0.0'}
+    dev: false
+
   /nopt/4.0.3:
     resolution: {integrity: sha512-CvaGwVMztSMJLOeXPrez7fyfObdZqNUK1cPAEzLHrTybIua9pMdmmPR5YwtfNftIOMv3DPUhFaxsZMNTQO20Kg==}
     hasBin: true
@@ -5773,6 +5794,16 @@ packages:
       is-fullwidth-code-point: 3.0.0
     dev: true
 
+  /solid-headless/0.13.0_solid-js@1.5.9:
+    resolution: {integrity: sha512-N118iPl7W5lyug4K+4c0cwM8YR2yEVJ/3H4wq6tVijATHfXfLnB1ACFI5GGHSXlwu70PUzaGSKwcVqLlloUMyA==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      solid-js: ^1.2
+    dependencies:
+      solid-js: 1.5.9
+      solid-use: 0.5.0_solid-js@1.5.9
+    dev: false
+
   /solid-icons/1.0.2_solid-js@1.5.9:
     resolution: {integrity: sha512-Pockp4vkCFFW+uubuRpb50pqKZNzjLhUUDm5VPpcZJWSgDw7fOxnMLcO1fC2bK8l+kYbJOr52y+pB5fnoZXg3Q==}
     engines: {node: '>= 16'}
@@ -5786,6 +5817,15 @@ packages:
     resolution: {integrity: sha512-vzM/KLui4r7JaTXh2+clrjZmEVP+gow4yFr8yDcz8+KtsrLmMxZXmIHqXoPImFy4FBFBZwtOCnRXp7NEOHPzIg==}
     dependencies:
       csstype: 3.1.1
+    dev: false
+
+  /solid-use/0.5.0_solid-js@1.5.9:
+    resolution: {integrity: sha512-z1AaS99SL3gNP70K4+XIVKGXDRI56m3Q6Q4X63bfgw0kaN6cwT4SAyFZAmIRjHcvf5rOMRQfNgUV4YVDha+LcQ==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      solid-js: ^1.2
+    dependencies:
+      solid-js: 1.5.9
     dev: false
 
   /source-map-js/1.0.2:

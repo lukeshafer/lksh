@@ -13,6 +13,7 @@ module.exports = {
 			gray: colors.slate,
 			black: colors.black,
 			white: colors.white,
+			error: colors.red,
 		},
 		fontFamily: {
 			display: ['RalewayVariable', ...defaultTheme.fontFamily.sans],
