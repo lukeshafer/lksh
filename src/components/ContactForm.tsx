@@ -54,14 +54,6 @@ export const ContactForm = () => {
 		<Show
 			when={!isSubmitted()}
 			fallback={<p>Thank you! I will respond within 3 business days.</p>}>
-			<p>
-				Fill the form or email me directly at{' '}
-				<a
-					href="mailto:hello@lukeshafer.com"
-					class="text-sky-600 dark:text-sky-400">
-					hello@lukeshafer.com
-				</a>
-			</p>
 			<form
 				method="post"
 				action="/contact"
@@ -71,13 +63,13 @@ export const ContactForm = () => {
 					const result = await submitForm(form)
 					console.log('Result:', result)
 				}}
-				class="mt-2 grid gap-4 bg-gray-50 p-6 dark:bg-gray-900">
+				class="mt-2 grid justify-center gap-4 p-6">
 				<input
 					type="text"
 					name="userName"
 					id="userName"
 					placeholder="Your name"
-					class="bg-gray-100 px-4 pt-2 pb-1 focus-visible:outline-none focus-visible:ring dark:bg-gray-800"
+					class="bg-sky-100 px-4 pt-2 pb-1 focus-visible:outline-none focus-visible:ring dark:bg-gray-900"
 					required
 				/>
 				<input
@@ -85,14 +77,14 @@ export const ContactForm = () => {
 					name="email"
 					id="email"
 					placeholder="Your email"
-					class="bg-gray-100 px-4 pt-2 pb-1 focus-visible:outline-none focus-visible:ring dark:bg-gray-800"
+					class="bg-gray-100 px-4 pt-2 pb-1 focus-visible:outline-none focus-visible:ring dark:bg-gray-900"
 					required
 				/>
 				<textarea
 					name="message"
 					id="message"
 					placeholder="Your message"
-					class="w-full bg-gray-100 px-4 pt-2 pb-1 focus-visible:outline-none focus-visible:ring dark:bg-gray-800"
+					class="w-full bg-gray-100 px-4 pt-2 pb-1 focus-visible:outline-none focus-visible:ring dark:bg-gray-900"
 					required
 				/>
 				<p class="visibly-hidden">

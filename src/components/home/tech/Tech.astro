@@ -18,12 +18,13 @@ const linkbase = 'https://github.com/lukeshafer?tab=repositories&q='
 				<li
 					class="w-24 text-center font-mono text-sm "
 					style={`--ls-stack-c1: ${c1}; --ls-stack-c2: ${c2};)}`}>
-					<Link
-						noUnderline
-						href={linkbase + tag}
-						class="grid justify-center justify-items-center gap-1 text-center">
-						<Icon name={name} class="w-16" />
-						<span>{tech}</span>
+					<Link noUnderline>
+						<a
+							href={linkbase + tag}
+							class="grid justify-center justify-items-center gap-1 text-center">
+							<Icon name={name} class="w-16" />
+							<span>{tech}</span>
+						</a>
 					</Link>
 				</li>
 			))

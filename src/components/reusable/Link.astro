@@ -6,19 +6,22 @@ export type Props = {
 const { noUnderline } = Astro.props as Props
 ---
 
-<span>
-	<span
-		id="container"
-		class={`text-sky-900 dark:text-sky-50 inline-block relative pt-1 mx-2 px-0 hover:px-2 hover:mx-0 focus-within:px-2 focus-within:mx-0 duration-100 delay-200 hover:delay-[0ms] focus-within:delay-[0ms] ${
-			noUnderline
-				? 'border-transparent pb-px'
-				: 'border-sky-800 dark:border-sky-100'
-		} border-b border-solid hover:border-sky-600 hover:dark:border-sky-400 focus-within:border-sky-600 focus-within:dark:border-sky-400 transition-[padding,margin,border-color] hover:text-sky-600 hover:dark:text-sky-400 focus-within:text-sky-600 focus-within:dark:text-sky-400 outline-none `}>
-		<slot />
-	</span>
+<span
+	id="container"
+	class={`text-sky-900 dark:text-sky-50 inline-block w-max relative pt-1 mx-2 px-0 hover:px-2 hover:mx-0 focus-within:px-2 focus-within:mx-0 duration-100 delay-200 hover:delay-[0ms] focus-within:delay-[0ms] ${
+		noUnderline
+			? 'border-transparent pb-px'
+			: 'border-sky-800 dark:border-sky-100'
+	} border-b border-solid hover:border-sky-600 hover:dark:border-sky-400 focus-within:border-sky-600 focus-within:dark:border-sky-400 transition-[padding,margin,border-color] hover:text-sky-600 hover:dark:text-sky-400 focus-within:text-sky-600 focus-within:dark:text-sky-400 outline-none `}>
+	<slot />
 </span>
 
 <style>
+	#container :global(a, button) {
+		z-index: 100;
+		position: relative;
+	}
+
 	#container:focus-within :global(*) {
 		outline: none;
 	}
@@ -39,7 +42,7 @@ const { noUnderline } = Astro.props as Props
 		border-color: inherit;
 		border-style: inherit;
 		content: ' ';
-		z-index: -1;
+		z-index: 0;
 	}
 
 	#container::before {

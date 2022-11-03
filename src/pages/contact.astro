@@ -4,5 +4,20 @@ import { ContactForm } from '../components/ContactForm'
 ---
 
 <BaseLayout title="Contact | Luke Shafer">
-	<ContactForm client:load />
+	<main
+		class="w-full relative flex px-grow my-12 flex-col gap-12 justify-center">
+		<h1
+			class="text-5xl font-display text-center transition-opacity duration-300">
+			Contact me
+		</h1>
+		<p class="text-center">
+			Fill the form or email me directly at{' '}
+			<a
+				href="mailto:hello@lukeshafer.com"
+				class="text-sky-600 dark:text-sky-400">
+				hello@lukeshafer.com
+			</a>
+		</p>
+		<ContactForm client:load />
+	</main>
 </BaseLayout>
