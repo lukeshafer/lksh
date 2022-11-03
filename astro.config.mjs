@@ -14,7 +14,7 @@ export default defineConfig({
 			external: ['svgo'],
 		},
 	},
-	output: 'static',
-	//adapter: vercel(),
+	output: 'server',
+	adapter: vercel(),
 	integrations: [image(), tokencss(), prefetch(), solidJs(), tailwind(), mdx()],
 })
