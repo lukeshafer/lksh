@@ -5,7 +5,6 @@ import tokencss from '@tokencss/astro'
 import prefetch from '@astrojs/prefetch'
 import solidJs from '@astrojs/solid-js'
 import tailwind from '@astrojs/tailwind'
-
 import mdx from '@astrojs/mdx'
 
 // https://astro.build/config
@@ -15,7 +14,7 @@ export default defineConfig({
 			external: ['svgo'],
 		},
 	},
-	output: 'server',
-	adapter: vercel(),
+	output: 'static',
+	//adapter: vercel(),
 	integrations: [image(), tokencss(), prefetch(), solidJs(), tailwind(), mdx()],
 })
