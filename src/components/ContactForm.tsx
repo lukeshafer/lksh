@@ -69,7 +69,7 @@ export const ContactForm = () => {
 					name="userName"
 					id="userName"
 					placeholder="Your name"
-					class="bg-sky-100 px-4 pt-2 pb-1 focus-visible:outline-none focus-visible:ring dark:bg-gray-900"
+					class="bg-sky-200 px-4 pt-2 pb-1 focus-visible:outline-none focus-visible:ring dark:bg-gray-900"
 					required
 				/>
 				<input
@@ -77,14 +77,14 @@ export const ContactForm = () => {
 					name="email"
 					id="email"
 					placeholder="Your email"
-					class="bg-gray-100 px-4 pt-2 pb-1 focus-visible:outline-none focus-visible:ring dark:bg-gray-900"
+					class="bg-sky-200 px-4 pt-2 pb-1 focus-visible:outline-none focus-visible:ring dark:bg-gray-900"
 					required
 				/>
 				<textarea
 					name="message"
 					id="message"
 					placeholder="Your message"
-					class="w-full bg-gray-100 px-4 pt-2 pb-1 focus-visible:outline-none focus-visible:ring dark:bg-gray-900"
+					class="w-full bg-sky-200 px-4 pt-2 pb-1 focus-visible:outline-none focus-visible:ring dark:bg-gray-900"
 					required
 				/>
 				<p class="visibly-hidden">
@@ -104,7 +104,7 @@ export const ContactForm = () => {
 				</label>
 				<button
 					type="submit"
-					class="mx-auto w-max rounded bg-white px-3 pb-1 pt-2 hover:bg-white/75 focus:bg-white/75 focus-visible:bg-white/75 dark:bg-black dark:hover:bg-black/75 dark:focus:bg-black/75 dark:focus-visible:bg-black/75">
+					class="mx-auto w-max rounded border border-gray-500 bg-white px-3 pb-1 pt-2 hover:bg-gray-300/75 focus:bg-white/75 focus-visible:bg-white/75 dark:bg-black dark:hover:bg-black/75 dark:focus:bg-black/75 dark:focus-visible:bg-black/75">
 					Submit
 				</button>
 				<div class="text-error-700">{errorMessage()}</div>
