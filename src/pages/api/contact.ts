@@ -39,7 +39,7 @@ export const post: APIRoute = async ({ request }) => {
 			from: `"${name}" <${SMTP_FROM}>`, // sender address
 			to: 'hello@lukeshafer.com', // list of receivers
 			subject: `SPAM DETECTED FROM ${name}`, // Subject line
-			text: `SPAM DECTECTED: Name: ${name}, Email: ${email}, Message: ${message}`,
+			text: `SPAM DECTECTED on lksh: Name: ${name}, Email: ${email}, Message: ${message}`,
 		})
 		return new Response(JSON.stringify({ success: true }), { status: 200 })
 	}
@@ -48,7 +48,7 @@ export const post: APIRoute = async ({ request }) => {
 	let info = await transporter.sendMail({
 		from: `"${name}" <${SMTP_FROM}>`, // sender address
 		to: 'hello@lukeshafer.com', // list of receivers
-		subject: `Form Submission from ${name}`, // Subject line
+		subject: `Form Submission from ${name} on lksh.dev`, // Subject line
 		text: `Name: ${name}, Email: ${email}, Message: ${message}`, // plain text body
 		html: `
 	<ul>
