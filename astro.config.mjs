@@ -1,7 +1,7 @@
+// @ts-check
 import { defineConfig } from 'astro/config'
 import vercel from '@astrojs/vercel/serverless'
 import image from '@astrojs/image'
-import tokencss from '@tokencss/astro'
 import prefetch from '@astrojs/prefetch'
 import solidJs from '@astrojs/solid-js'
 import tailwind from '@astrojs/tailwind'
@@ -16,5 +16,5 @@ export default defineConfig({
 	},
 	output: 'server',
 	adapter: vercel(),
-	integrations: [image(), tokencss(), prefetch(), solidJs(), tailwind(), mdx()],
+	integrations: [image(), prefetch(), solidJs(), tailwind(), mdx()],
 })
