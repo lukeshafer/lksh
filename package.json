@@ -17,7 +17,6 @@
 		"@astrojs/tailwind": "^2.1.1",
 		"@astrojs/vercel": "^1.0.2",
 		"@tailwindcss/typography": "^0.5.7",
-		"@tokencss/astro": "^0.0.4",
 		"astro": "^1.6.2",
 		"astro-icon": "^0.7.3",
 		"autoprefixer": "^10.4.13",

@@ -1,29 +1,46 @@
 ---
-import NavItem from './NavItem.astro'
 import Logo from './Logo.svg.astro'
 import Icon from 'astro-icon'
-import Link from '../../components/reusable/Link.astro'
+import Link from '../components/Link.astro'
+
+const navLinks = [
+	{ name: 'Home', href: '/' },
+	{ name: 'Projects', href: '/projects' },
+	{ name: 'Blog', href: '/blog' },
+	{ name: 'Contact', href: '/contact' },
+]
+
+const page = '/' + Astro.url.pathname.split('/')[1]
 ---
 
 <header
-	class="grid grid-cols-2 grid-rows-2 sm:grid-cols-4 sm:grid-rows-1 grid-flow-dense justify-between px-9 py-6 fixed inset-x-0 top-0 z-50 bg-gradient-to-b from-gray-50 via-gray-50 dark:from-gray-900 dark:via-gray-900 to-transparent">
+	class="sm:grid flex flex-col sm:grid-cols-4 sm:grid-rows-1 grid-flow-dense justify-between items-center px-4 py-3 sm:px-9 sm:py-6 fixed inset-x-0 top-0 z-50 bg-gradient-to-b from-gray-50 via-gray-50 dark:from-gray-900 dark:via-gray-900 to-transparent">
 	<Link noUnderline>
 		<a
 			href="/"
 			class="stroke-sky-800 dark:stroke-sky-100 hover:stroke-sky-600 hover:dark:stroke-sky-400 focus:stroke-sky-600 focus:dark:stroke-sky-400">
-			<Logo class="z-10 h-8 w-8" />
+			<Logo class="z-10 h-6 w-6 sm:h-8 sm:w-8" />
 			<span class="visibly-hidden">Logo</span>
 		</a>
 	</Link>
 	<nav class="col-span-2">
-		<ul class="flex flex-row gap-10 justify-center">
-			<NavItem href="/">Home</NavItem>
-			<NavItem href="/projects">Projects</NavItem>
-			<NavItem href="/blog">Blog</NavItem>
-			<NavItem href="/contact">Contact</NavItem>
+		<ul class="flex flex-row gap-4 justify-evenly max-w-2xl">
+			{
+				navLinks.map(({ name, href }) => (
+					<li class={href === page ? 'font-bold' : 'font-light'}>
+						<Link>
+							<a
+								href={href}
+								class="group whitespace-nowrap font-mono text-sm text-inherit">
+								{name}
+							</a>
+						</Link>
+					</li>
+				))
+			}
 		</ul>
 	</nav>
-	<ul class="flex gap-2 justify-self-end items-center">
+	<ul class="sm:flex gap-2 justify-self-end items-center hidden">
 		<li>
 			<Link noUnderline>
 				<a href="https://linkedin.com/in/lukealanshafer">

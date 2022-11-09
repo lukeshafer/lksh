@@ -8,7 +8,7 @@ const { noUnderline } = Astro.props as Props
 
 <span
 	id="container"
-	class={`text-sky-900 dark:text-sky-50 inline-block w-max relative pt-1 mx-2 px-0 hover:px-2 hover:mx-0 focus-within:px-2 focus-within:mx-0 duration-100 delay-200 hover:delay-[0ms] focus-within:delay-[0ms] ${
+	class={`text-sky-900 dark:text-sky-100 inline-block w-max relative pt-1 mx-2 px-0 hover:px-2 hover:mx-0 focus-within:px-2 focus-within:mx-0 duration-100 delay-200 hover:delay-[0ms] focus-within:delay-[0ms] ${
 		noUnderline
 			? 'border-transparent pb-px'
 			: 'border-sky-800 dark:border-sky-100'
@@ -18,7 +18,7 @@ const { noUnderline } = Astro.props as Props
 
 <style>
 	#container :global(a, button) {
-		z-index: 100;
+		z-index: 30;
 		position: relative;
 	}
 
@@ -62,5 +62,13 @@ const { noUnderline } = Astro.props as Props
 		transition: height 100ms 100ms, width 100ms 200ms;
 		height: 100%;
 		width: 51%;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		*,
+		*::before,
+		*::after {
+			transition: none !important;
+		}
 	}
 </style>

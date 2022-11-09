@@ -1,8 +1,7 @@
 ---
 import { stackList } from './StackList'
 import { Icon } from 'astro-icon'
-import Link from '../../reusable/Link.astro'
-/*import { getBestTextColor } from "../../../utils/colors";*/
+import Link from './Link.astro'
 const linkbase = 'https://github.com/lukeshafer?tab=repositories&q='
 ---
 
@@ -38,14 +37,6 @@ const linkbase = 'https://github.com/lukeshafer?tab=repositories&q='
 	li:hover [astro-icon],
 	li:focus-within [astro-icon] {
 		animation: color-change 1.5s infinite linear forwards;
-	}
-
-	a {
-		color: var(--ls-c-primary);
-	}
-
-	li span {
-		color: var(--ls-c-text);
 	}
 
 	@keyframes color-change {

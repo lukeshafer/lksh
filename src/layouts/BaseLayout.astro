@@ -1,7 +1,7 @@
 ---
 // COMPONENTS
-import Footer from './footer/Footer.astro'
-import Header from './header/Header.astro'
+import Footer from './Footer.astro'
+import Header from './Header.astro'
 
 // FONTS
 import '@fontsource/raleway/variable.css'
@@ -10,9 +10,6 @@ import '@fontsource/jetbrains-mono/variable.css'
 import '@fontsource/khula'
 
 // STYLES
-// import '../styles/better-normalize.css';
-// import '../styles/reset.local.css';
-// import '../styles/presets.css';
 import '../app.css'
 
 // PROPS
@@ -23,7 +20,10 @@ export interface Props {
 const { title } = Astro.props
 ---
 
-<html lang="en" style="overflow-x:hidden" class="scroll-smooth font-body">
+<html
+	lang="en"
+	style="overflow-x:hidden"
+	class="scroll-smooth motion-reduce:scroll-auto font-body">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -51,38 +51,6 @@ const { title } = Astro.props
 		<style>
 			:global(:root) {
 				font-size: clamp(100%, 0.2rem + 1.3vw, 150%);
-
-				/*GLOBAL FONT VARIABLES*/
-				--ls-sans-stack: ui-sans-serif, system-ui, -apple-system,
-					BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-					'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-					'Segoe UI Symbol', 'Noto Color Emoji';
-				--ls-f-display: RalewayVariable, var(--ls-sans-stack);
-				--ls-f-subheading: 'Work SansVariable', var(--ls-sans-stack);
-				--ls-f-body: 'Khula', var(--ls-sans-stack);
-				--ls-f-mono: 'JetBrains MonoVariable', ui-monospace, SFMono-Regular,
-					Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-
-				--ls-c-primary-light: #0369a1;
-				--ls-c-primary-dark: #38bdf8;
-				--ls-c-link-light: #0c4a6e;
-				--ls-c-link-dark: #e0f2fe;
-
-				/*GLOBAL COLOR VARIABLES*/
-				--ls-c-primary: var(--ls-c-primary-light);
-				--ls-c-link: var(--ls-c-link-light);
-				--ls-c-text: #0f172a;
-				--ls-c-base: #f8fafc;
-				--ls-c-text-faint: #334155;
-			}
-			@media (prefers-color-scheme: dark) {
-				:global(:root) {
-					--ls-c-primary: var(--ls-c-primary-dark);
-					--ls-c-link: var(--ls-c-link-dark);
-					--ls-c-text: #f8fafc;
-					--ls-c-base: #0f172a;
-					--ls-c-text-faint: #cbd5e1;
-				}
 			}
 		</style>
 	</body>
