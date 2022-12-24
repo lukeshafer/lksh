@@ -9,7 +9,14 @@ const props = Astro.props as MDXLayoutProps<Record<string, unknown>>
 const validationResult = validateFrontmatter(props.frontmatter)
 if (!validationResult.success) throw new Error('Invalid post')
 const { title, authorLink, author, datePublished } = validationResult.data
+
+/*return Astro.redirect('/')*/
 ---
+
+<script>
+	window.location.href = '/'
+	// removing blog until i have better content written
+</script>
 
 <BaseLayout title={title}>
 	<main

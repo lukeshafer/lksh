@@ -3,6 +3,9 @@ import Link from '../components/Link.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import { validateFrontmatter } from './blog/blogpost'
 let posts = await Astro.glob('./blog/*.mdx')
+
+return Astro.redirect('/')
+// removing blog until i have better content written
 ---
 
 <BaseLayout title="Blog | Luke Shafer">
