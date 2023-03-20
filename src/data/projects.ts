@@ -2,34 +2,26 @@ export const projects = [
 	{
 		name: 'Fridge Magnets',
 		year: '2022',
-		url: 'https://fridgemagnets.dev.lukeshafer.com',
+		url: '',
 		repo: 'https://github.com/lukeshafer/fridgemagnets',
 		category: 'Game',
 		tags: ['TypeScript', 'Node.js', 'Colyseus', 'SvelteKit'],
 	},
 	{
-		name: 'Do Good Collective',
-		year: '2022',
-		url: 'https://dogoodcollective.net',
-		repo: 'https://github.com/lukeshafer/do-good',
-		category: 'Website',
-		tags: ['SvelteKit', 'Strapi CMS', 'REST APIs', 'TypeScript'],
-	},
-	{
 		name: 'Goomba Stack',
 		year: '2022',
-		url: 'https://goomba.dev.lukeshafer.com',
+		url: '',
 		repo: 'https://github.com/lukeshafer/goombastack',
 		category: 'Game',
 		tags: ['TypeScript', 'Matter.js', 'Svelte'],
 	},
 	{
-		name: 'Luke Shafer Web Design',
+		name: 'Portfolio',
 		year: '2022',
 		url: 'https://lukeshafer.com',
 		repo: 'https://github.com/lukeshafer/lukeshafer.com',
 		category: 'Website',
-		tags: ['SvelteKit', 'TypeScript', 'PostCSS'],
+		tags: ['Astro', 'TypeScript'],
 	},
 	{
 		name: 'Snaily Bot',
@@ -48,14 +40,6 @@ export const projects = [
 		tags: ['Svelte', 'Rollup', 'Netlify CMS'],
 	},
 	{
-		name: "Enny's Wheels",
-		year: '2022',
-		url: 'https://enny.fund',
-		repo: 'https://github.com/lukeshafer/enny-fundraiser',
-		category: 'Website',
-		tags: ['SvelteKit', 'CSS'],
-	},
-	{
 		name: 'Toxic Man',
 		year: '2021',
 		url: '',
@@ -71,4 +55,4 @@ export const projects = [
 		category: 'Bot',
 		tags: ['Node.js', 'JavaScript', 'GroupMe API'],
 	},
-];
+]
