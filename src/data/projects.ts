@@ -10,7 +10,7 @@ export const projects = [
 	{
 		name: 'Goomba Stack',
 		year: '2022',
-		url: '',
+		url: 'https://goomba-stack.vercel.app/',
 		repo: 'https://github.com/lukeshafer/goombastack',
 		category: 'Game',
 		tags: ['TypeScript', 'Matter.js', 'Svelte'],
