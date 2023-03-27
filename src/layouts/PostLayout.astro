@@ -1,43 +1,44 @@
 ---
-import type { MDXLayoutProps } from 'astro'
 import Link from '../components/Link.astro'
-import { validateFrontmatter } from '../pages/blog/blogpost'
-
 import BaseLayout from './BaseLayout.astro'
+import FormattedDate from '../components/FormattedDate.astro'
+import type { CollectionEntry } from 'astro:content'
 
-const props = Astro.props as MDXLayoutProps<Record<string, unknown>>
-const validationResult = validateFrontmatter(props.frontmatter)
-if (!validationResult.success) throw new Error('Invalid post')
-const { title, authorLink, author, datePublished } = validationResult.data
+type Props = CollectionEntry<'blog'>['data']
 
-/*return Astro.redirect('/')*/
+const { title, description, pubDate, updatedDate, heroImage } = Astro.props
 ---
-
-<script>
-	window.location.href = '/'
-	// removing blog until i have better content written
-</script>
 
 <BaseLayout title={title}>
 	<main
-		class="justify-items-center gap-12 auto-rows-min px-grow max-w-5xl mx-auto pb-16">
+		class="mx-auto max-w-5xl auto-rows-min justify-items-center gap-12 px-grow pb-16">
 		<header class="grid gap-2 pb-6">
-			<h1 class="text-5xl font-display">{title}</h1>
+			<h1 class="font-display text-5xl">{title}</h1>
 			<div
-				class="font-subheading font-light text-lg justify-self-end flex items-end">
-				<time datetime={datePublished} class="opacity-80">
-					Published {
-						new Date(datePublished).toDateString().split(' ').slice(1).join(' ')
-					}
-				</time>
-				<address>
-					<Link><a rel="author" href={authorLink}>by {author}</a></Link>
-				</address>
+				class="flex items-end justify-self-end font-subheading text-lg font-light">
+				<div class="text-stone-500">
+					Published
+					<FormattedDate date={pubDate} />
+				</div>
+				{
+					updatedDate ? (
+						<div class="last-updated-on">
+							Last updated on <FormattedDate date={updatedDate} />
+						</div>
+					) : null
+				}
 			</div>
 		</header>
 		<article
-			class="mx-auto prose prose-p:text-base prose-h2:font-subheading prose-h2:font-normal dark:prose-invert prose-sky prose-p:leading-5">
+			class="prose prose-sky mx-auto dark:prose-invert prose-h2:font-subheading prose-h2:font-normal prose-p:text-base prose-p:leading-5">
 			<slot />
 		</article>
+		<footer class="my-8">
+			<p class="italic">
+				Luke is a software engineer in Columbus, Ohio. He focuses primarily on
+				JavaScript and TypeScript, and is currently working as an integrations
+				developer at <a href="https://osu.edu">the Ohio State University</a>.
+			</p>
+		</footer>
 	</main>
 </BaseLayout>

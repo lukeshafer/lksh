@@ -1,50 +1,41 @@
 ---
-import { Icon } from 'astro-icon'
+/*import { Icon } from 'astro-icon'*/
 /*import { ContactDialog, OpenContactDialogButton } from './Contact'*/
-import Link from './Link.astro'
-import { Language } from './Language'
+/*import Link from './Link.astro'*/
+/*import { Language } from './Language'*/
+import { Image } from '@astrojs/image/components'
+
+import headshot from '../assets/headshot-bw.png'
 ---
 
 <section
 	id="hero"
-	class="h-[calc(100svh-8rem)] h-[calc(100vh-8rem)] px-grow flex flex-col gap-16">
-	<div id="heading" class="flex-1 flex grid gap-2 content-end">
-		<h1 class="font-display text-6xl font-normal top-0">
-			Hi, I'm{' '}
-			<span class="inline-block text-sky-600 dark:text-sky-300">
-				Luke Shafer</span
-			>
-		</h1>
-		<p class="font-subheading text-2xl items-center gap-2 font-light">
-			and I'm a <Language client:load /> Developer
-		</p>
+	class="min-h-[50svh] px-grow flex flex-row-reverse flex-wrap gap-16 items-center justify-center content-center max-w-6xl mx-auto">
+	<div
+		class="headshot-container relative w-full max-w-[16rem] max-h-[16rem] after:absolute after:block after:top-4 after:left-4 after:w-full after:h-full after:border-[6px] after:border-primary-600 dark:after:border-primary-300">
+		<Image
+			id="headshot"
+			src={headshot}
+			width={1000}
+			format="webp"
+			alt="My headshot"
+			class="shadow-sm shadow-black/10 bg-primary-200 dark:bg-primary-50 w-full h-full pt-5 object-cover text-white dark:text-black text-center relative z-10"
+		/>
 	</div>
-	<ul class="flex-1 grid content-start gap-2 text-xl">
-		<li>
-			<Link>
-				<a
-					href="/resume.pdf"
-					download="Resume-Luke-Shafer.pdf"
-					class="font-subheading">Download my resume</a
-				>
-			</Link>
-		</li>
-		<li>
-			<Link>
-				<a href="/contact" class="font-subheading">Get in touch</a>
-			</Link>
-		</li>
-	</ul>
-	<div class="w-full text-center">
-		<a
-			href="#bio"
-			class="p-4 text-center inline-flex w-max gap-1 flex-col items-center hover:text-sky-700 dark:hover:text-sky-200 transition-colors">
-			<slot /><br /><Icon
-				name="bi:arrow-down-circle-fill"
-				class="w-12"
-				height={30}
-				width={30}
-			/><span class="visibly-hidden">Next section</span>
-		</a>
+	<div id="text" class="flex-1 grid gap-4 content-center min-w-[21rem]">
+		<h1
+			class="font-display text-6xl text-primary-600 dark:text-primary-300 font-medium top-0">
+			Luke Shafer
+		</h1>
+		<p class="text-2xl font-mono">
+			<span class="inline-block">Systems Engineer</span> &<span
+				aria-hidden="true">&</span
+			>
+			<span class="inline-block">Web Developer</span>
+		</p>
+		<p class="mt-6 text-xl">
+			I create thoughtfully-designed, scalable systems, with a focus on
+			providing the best possible user experience.
+		</p>
 	</div>
 </section>

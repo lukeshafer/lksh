@@ -5,26 +5,35 @@ import Link from './Link.astro'
 const linkbase = 'https://github.com/lukeshafer?tab=repositories&q='
 ---
 
-<section id="tech" class="flex flex-wrap justify-center gap-8 px-grow">
-	<div class="w-80 grid gap-4 content-center">
-		<h2 class="text-4xl font-display">My favorite tech</h2>
-		<p class="w-60">Click a link to see projects using that technology!</p>
+<section
+	id="tech"
+	aria-labelledby="tech-title"
+	class="grid w-full place-items-center justify-center gap-8 px-grow">
+	<div class="grid content-center justify-items-center gap-4 text-center">
+		<h2 id="tech-title" class="font-mono text-4xl">The Tech I Use</h2>
+		<p class="max-w-[16rem] text-lg">
+			Click an icon to see my projects using that technology!
+		</p>
 	</div>
-	<ul class="grid grid-cols-3 grid-rows-2 gap-y-4 gap-x-4">
+	<ul class="tech-list">
 		{
 			// Merge stackicon into this file, fix link
 			[...stackList].map(([tech, { name, tag, c1, c2 }]) => (
 				<li
-					class="w-24 text-center font-mono text-sm "
+					class="relative text-center font-mono text-lg group"
 					style={`--ls-stack-c1: ${c1}; --ls-stack-c2: ${c2};)}`}>
 					<Link noUnderline>
 						<a
 							href={linkbase + tag}
+							target="_blank"
 							class="grid justify-center justify-items-center gap-1 text-center">
-							<Icon name={name} class="w-16" />
+							<Icon name={name} class="w-24" />
 							<span>{tech}</span>
 						</a>
 					</Link>
+					<span class="absolute top-0 right-0 opacity-0 focus:opacity-100 transition-opacity group-hover:opacity-100">
+						<Icon name="mdi:arrow-top-right" class="w-4 z-10" />
+					</span>
 				</li>
 			))
 		}
@@ -32,7 +41,15 @@ const linkbase = 'https://github.com/lukeshafer?tab=repositories&q='
 </section>
 
 <style>
-	/* ADD LI SELECTOR WITH BETTER CSS HERE */
+	.tech-list {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+		place-items: center;
+		width: 80vw;
+		max-width: 35rem;
+		gap: 5rem 4rem;
+		padding-top: 1rem;
+	}
 
 	li:hover [astro-icon],
 	li:focus-within [astro-icon] {
