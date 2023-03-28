@@ -69,7 +69,7 @@ export const ContactForm = () => {
 					name="userName"
 					id="userName"
 					placeholder="Your name"
-					class="bg-sky-200 px-4 pt-2 pb-1 focus-visible:outline-none focus-visible:ring dark:bg-gray-900"
+					class="bg-primary-200 px-4 pt-2 pb-1 focus-visible:outline-none focus-visible:ring dark:bg-gray-900"
 					required
 				/>
 				<input
@@ -77,14 +77,14 @@ export const ContactForm = () => {
 					name="email"
 					id="email"
 					placeholder="Your email"
-					class="bg-sky-200 px-4 pt-2 pb-1 focus-visible:outline-none focus-visible:ring dark:bg-gray-900"
+					class="bg-primary-200 px-4 pt-2 pb-1 focus-visible:outline-none focus-visible:ring dark:bg-gray-900"
 					required
 				/>
 				<textarea
 					name="message"
 					id="message"
 					placeholder="Your message"
-					class="w-full bg-sky-200 px-4 pt-2 pb-1 focus-visible:outline-none focus-visible:ring dark:bg-gray-900"
+					class="w-full bg-primary-200 px-4 pt-2 pb-1 focus-visible:outline-none focus-visible:ring dark:bg-gray-900"
 					required
 				/>
 				<p class="visibly-hidden">

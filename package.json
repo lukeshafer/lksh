@@ -24,6 +24,7 @@
 		"normalize.css": "^8.0.1",
 		"postcss-easing-gradients": "^3.0.1",
 		"postcss-nesting": "^11.2.2",
+		"sharp": "^0.32.0",
 		"solid-headless": "^0.13.1",
 		"solid-icons": "^1.0.4",
 		"solid-js": "^1.6.15",

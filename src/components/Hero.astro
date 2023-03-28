@@ -5,29 +5,31 @@
 /*import { Language } from './Language'*/
 import { Image } from '@astrojs/image/components'
 
-import headshot from '../assets/headshot-bw.png'
+import headshot from '../assets/headshot-bw-square.png'
 ---
 
 <section
 	id="hero"
-	class="min-h-[50svh] px-grow flex flex-row-reverse flex-wrap gap-16 items-center justify-center content-center max-w-6xl mx-auto">
+	class="mx-auto flex min-h-[50svh] max-w-6xl flex-row-reverse flex-wrap content-center items-center justify-center gap-16 px-grow">
 	<div
-		class="headshot-container relative w-full max-w-[16rem] max-h-[16rem] after:absolute after:block after:top-4 after:left-4 after:w-full after:h-full after:border-[6px] after:border-primary-600 dark:after:border-primary-300">
+		class="headshot-container relative max-h-[16rem] w-full max-w-[16rem] after:absolute after:top-4 after:left-4 after:block after:h-full after:w-full after:border-[6px] after:border-accent-700 dark:after:border-accent-400">
 		<Image
 			id="headshot"
 			src={headshot}
-			width={1000}
+			width={675}
+			height={675}
+			fit="cover"
 			format="webp"
 			alt="My headshot"
-			class="shadow-sm shadow-black/10 bg-primary-200 dark:bg-primary-50 w-full h-full pt-5 object-cover text-white dark:text-black text-center relative z-10"
+			class="relative z-10 h-full w-full bg-primary-100 object-cover text-center text-white shadow-sm shadow-black/10 dark:bg-primary-200 dark:text-black"
 		/>
 	</div>
-	<div id="text" class="flex-1 grid gap-4 content-center min-w-[21rem]">
+	<div id="text" class="grid w-[21rem] max-w-[90vw] flex-1 content-center gap-4">
 		<h1
-			class="font-display text-6xl text-primary-600 dark:text-primary-300 font-medium top-0">
+			class="top-0 font-display text-6xl font-medium text-primary-800 dark:text-primary-200">
 			Luke Shafer
 		</h1>
-		<p class="text-2xl font-mono">
+		<p class="font-mono text-2xl text-accent-700 dark:text-accent-300">
 			<span class="inline-block">Systems Engineer</span> &<span
 				aria-hidden="true">&</span
 			>

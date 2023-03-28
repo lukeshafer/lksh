@@ -17,5 +17,13 @@ export default defineConfig({
 	},
 	output: 'server',
 	adapter: vercel(),
-	integrations: [image(), prefetch(), solidJs(), tailwind(), mdx()],
+	integrations: [
+		image({
+			serviceEntryPoint: '@astrojs/image/sharp',
+		}),
+		prefetch(),
+		solidJs(),
+		tailwind(),
+		mdx(),
+	],
 })

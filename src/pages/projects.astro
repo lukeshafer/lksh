@@ -19,7 +19,7 @@ import Icon from 'astro-icon'
 						<div class="flex items-center gap-4">
 							<time
 								datetime={project.year}
-								class="font-subheading text-3xl text-sky-600 opacity-70 dark:text-sky-300">
+								class="font-subheading text-3xl text-primary-600 opacity-70 dark:text-primary-300">
 								{project.year}
 							</time>
 							{project.url ? (
@@ -54,7 +54,7 @@ import Icon from 'astro-icon'
 							)}
 						</div>
 						<ul class="flex w-full flex-wrap gap-y-1 gap-x-2">
-							<li class="bg-sky-600 py-1 px-2 font-mono text-xs text-gray-50 dark:bg-sky-300 dark:text-gray-900">
+							<li class="bg-primary-600 py-1 px-2 font-mono text-xs text-gray-50 dark:bg-primary-300 dark:text-gray-900">
 								{project.category}
 							</li>
 							{project.tags.map((t) => (

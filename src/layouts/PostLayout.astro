@@ -1,17 +1,16 @@
 ---
-import Link from '../components/Link.astro'
 import BaseLayout from './BaseLayout.astro'
 import FormattedDate from '../components/FormattedDate.astro'
 import type { CollectionEntry } from 'astro:content'
 
 type Props = CollectionEntry<'blog'>['data']
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props
+const { title, pubDate, updatedDate } = Astro.props
 ---
 
 <BaseLayout title={title}>
 	<main
-		class="mx-auto max-w-5xl auto-rows-min justify-items-center gap-12 px-grow pb-16">
+		class="mx-auto max-w-5xl auto-rows-min justify-items-center gap-12 px-grow pb-16 pt-8">
 		<header class="grid gap-2 pb-6">
 			<h1 class="font-display text-5xl">{title}</h1>
 			<div
@@ -30,7 +29,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props
 			</div>
 		</header>
 		<article
-			class="prose prose-sky mx-auto dark:prose-invert prose-h2:font-subheading prose-h2:font-normal prose-p:text-base prose-p:leading-5">
+			class="prose prose-indigo mx-auto dark:prose-invert prose-h2:font-subheading prose-h2:font-normal prose-p:text-base prose-p:leading-5">
 			<slot />
 		</article>
 		<footer class="my-8">

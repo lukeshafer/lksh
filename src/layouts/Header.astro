@@ -13,66 +13,69 @@ const navLinks = [
 const page = '/' + Astro.url.pathname.split('/')[1]
 ---
 
-<header
-	class="sm:grid flex flex-col sm:grid-cols-4 sm:grid-rows-1 grid-flow-dense justify-between items-center px-4 py-3 sm:px-9 sm:py-6 fixed inset-x-0 top-0 z-50 bg-gradient-to-b from-gray-50 via-gray-50 dark:from-gray-900 dark:via-gray-900 to-transparent">
-	<Link noUnderline>
-		<a
-			href="/"
-			class="stroke-sky-800 dark:stroke-sky-100 hover:stroke-sky-600 hover:dark:stroke-sky-400 focus:stroke-sky-600 focus:dark:stroke-sky-400">
-			<Logo class="z-10 h-6 w-6 sm:h-8 sm:w-8" />
-			<span class="visibly-hidden">Logo</span>
-		</a>
-	</Link>
-	<nav class="col-span-2">
-		<ul class="flex flex-row gap-4 justify-evenly max-w-2xl">
-			{
+<div class="bg-white dark:bg-black">
+	<header
+		class="sticky inset-x-0 top-0 z-50 flex grid-flow-dense flex-col items-center justify-between bg-white from-primary-100 to-primary-200 px-4 py-3 dark:bg-primary-800/10 sm:grid sm:grid-cols-4 sm:grid-rows-1">
+		<Link noUnderline>
+			<a
+				href="/"
+				class="stroke-primary-800 hover:stroke-primary-600 focus:stroke-primary-600 dark:stroke-primary-100 hover:dark:stroke-primary-400 focus:dark:stroke-primary-400">
+				<Logo class="z-10 h-6 w-6 sm:h-8 sm:w-8" />
+				<span class="visibly-hidden">Logo</span>
+			</a>
+		</Link>
+		<nav class="col-span-2">
+			<ul class="flex max-w-2xl flex-row flex-wrap justify-evenly gap-4">
+				{
 				navLinks.map(({ name, href }) => (
 					<li class={href === page ? 'font-bold' : 'font-light'}>
 						<Link>
 							<a
 								href={href}
-								class="group whitespace-nowrap font-mono text-sm text-inherit">
+								class="text-inherit group whitespace-nowrap font-mono text-sm">
 								{name}
 							</a>
 						</Link>
 					</li>
 				))
+				}
+			</ul>
+		</nav>
+		<ul class="hidden items-center gap-2 justify-self-end sm:flex">
+			<li>
+				<Link noUnderline>
+					<a href="https://linkedin.com/in/lukealanshafer" title="LinkedIn">
+						<Icon class="w-5" name="fa-brands:linkedin" />
+						<span class="visibly-hidden">LinkedIn</span>
+					</a>
+				</Link>
+			</li>
+			{
+			/*<li>*/
+			/*<Link noUnderline>*/
+			/*<a href="https://twitter.com/lksh_dev">*/
+			/*<Icon class="w-5" name="fa-brands:twitter" />*/
+			/*<span class="visibly-hidden">Twitter</span>*/
+			/*</a>*/
+			/*</Link>*/
+			/*</li>*/
+			/*<li>*/
+			/*<Link noUnderline>*/
+			/*<a rel="me" href="https://hachyderm.io/@lksh">*/
+			/*<Icon class="w-5" name="fa-brands:mastodon" />*/
+			/*<span class="visibly-hidden">Mastodon</span>*/
+			/*</a>*/
+			/*</Link>*/
+			/*</li>*/
 			}
+			<li>
+				<Link noUnderline>
+					<a href="https://github.com/lukeshafer" title="GitHub">
+						<Icon class="w-5" name="fa-brands:github" />
+						<span class="visibly-hidden">GitHub</span>
+					</a>
+				</Link>
+			</li>
 		</ul>
-	</nav>
-	<ul class="sm:flex gap-2 justify-self-end items-center hidden">
-		<li>
-			<Link noUnderline>
-				<a href="https://linkedin.com/in/lukealanshafer">
-					<Icon class="w-5" name="fa-brands:linkedin" />
-					<span class="visibly-hidden">LinkedIn</span>
-				</a>
-			</Link>
-		</li>
-		<li>
-			<Link noUnderline>
-				<a href="https://twitter.com/lksh_dev">
-					<Icon class="w-5" name="fa-brands:twitter" />
-					<span class="visibly-hidden">Twitter</span>
-				</a>
-			</Link>
-		</li>
-		<li>
-			<Link noUnderline>
-				<a rel="me" href="https://hachyderm.io/@lksh">
-					<Icon class="w-5" name="fa-brands:mastodon" />
-					<span class="visibly-hidden">Mastodon</span>
-				</a>
-			</Link>
-		</li>
-		<li>
-			<Link noUnderline>
-				<a href="https://github.com/lukeshafer">
-					<Icon class="w-5" name="fa-brands:github" />
-					<span class="visibly-hidden">GitHub</span>
-				</a>
-			</Link>
-		</li>
-	</ul>
-</header>
-<div hidden class="h-32 block"></div>
+	</header>
+</div>

@@ -20,20 +20,20 @@ const linkbase = 'https://github.com/lukeshafer?tab=repositories&q='
 			// Merge stackicon into this file, fix link
 			[...stackList].map(([tech, { name, tag, c1, c2 }]) => (
 				<li
-					class="relative text-center font-mono text-lg group"
+					class="relative text-center font-mono text-lg "
 					style={`--ls-stack-c1: ${c1}; --ls-stack-c2: ${c2};)}`}>
 					<Link noUnderline>
 						<a
 							href={linkbase + tag}
 							target="_blank"
-							class="grid justify-center justify-items-center gap-1 text-center">
+							class="group relative grid justify-center justify-items-center gap-1 text-center">
 							<Icon name={name} class="w-24" />
 							<span>{tech}</span>
+							<span class="absolute top-0 right-0 opacity-0 transition-opacity group-hover:opacity-100 group-focus:opacity-100">
+								<Icon name="mdi:arrow-top-right" class="z-10 w-4" />
+							</span>
 						</a>
 					</Link>
-					<span class="absolute top-0 right-0 opacity-0 focus:opacity-100 transition-opacity group-hover:opacity-100">
-						<Icon name="mdi:arrow-top-right" class="w-4 z-10" />
-					</span>
 				</li>
 			))
 		}

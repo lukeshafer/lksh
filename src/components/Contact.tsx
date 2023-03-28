@@ -117,7 +117,7 @@ export const ContactDialog: Component<ParentProps> = ({ children }) => {
 										Fill the form or email me directly at{' '}
 										<a
 											href="mailto:hello@lukeshafer.com"
-											class="text-sky-600 dark:text-sky-400">
+											class="text-primary-600 dark:text-primary-400">
 											hello@lukeshafer.com
 										</a>
 									</p>
