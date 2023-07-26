@@ -6,11 +6,18 @@
 import { Image } from '@astrojs/image/components'
 
 import headshot from '../assets/headshot-bw-square.png'
+import BackgroundOrb from './BackgroundOrb.astro';
 ---
 
 <section
 	id="hero"
-	class="mx-auto py-8 flex min-h-[50svh] max-w-6xl flex-row-reverse flex-wrap content-center items-center justify-center gap-16 px-grow">
+	class="mx-auto py-8 flex min-h-[50svh] max-w-6xl flex-row-reverse flex-wrap content-center items-center justify-center gap-16 px-grow relative">
+	<div class="absolute inset-0 w-full h-full" aria-hidden="true">
+		<BackgroundOrb top="10%" left="13%" />
+		<BackgroundOrb top="30%" left="83%" />
+		<BackgroundOrb top="100%" left="-8%" />
+		<BackgroundOrb top="80%" left="96%" />
+	</div>
 	<div
 		class="headshot-container relative max-h-[16rem] w-full max-w-[16rem] after:absolute after:top-4 after:left-4 after:block after:h-full after:w-full after:border-[6px] after:border-accent-700 dark:after:border-accent-400">
 		<Image

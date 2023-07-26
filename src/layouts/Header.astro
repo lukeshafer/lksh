@@ -13,9 +13,9 @@ const navLinks = [
 const page = '/' + Astro.url.pathname.split('/')[1]
 ---
 
-<div class="bg-white dark:bg-black">
+<div class="sticky inset-x-0 top-0 bg-white dark:bg-black z-50">
 	<header
-		class="sticky inset-x-0 top-0 z-50 flex grid-flow-dense flex-col items-center justify-between bg-primary-100 from-primary-100 to-primary-200 px-4 py-3 dark:bg-primary-800/10 sm:grid sm:grid-cols-4 sm:grid-rows-1">
+		class="sticky inset-x-0 top-0  flex grid-flow-dense flex-col items-center justify-between bg-primary-100 from-primary-100 to-primary-200 px-4 py-3 dark:bg-primary-800/10 sm:grid sm:grid-cols-4 sm:grid-rows-1">
 		<Link noUnderline>
 			<a
 				href="/"
@@ -27,17 +27,17 @@ const page = '/' + Astro.url.pathname.split('/')[1]
 		<nav class="col-span-2">
 			<ul class="flex max-w-2xl flex-row flex-wrap justify-evenly gap-4">
 				{
-				navLinks.map(({ name, href }) => (
-					<li class={href === page ? 'font-bold' : 'font-light'}>
-						<Link>
-							<a
-								href={href}
-								class="text-inherit group whitespace-nowrap font-mono text-sm">
-								{name}
-							</a>
-						</Link>
-					</li>
-				))
+					navLinks.map(({ name, href }) => (
+						<li class={href === page ? 'font-bold' : 'font-light'}>
+							<Link>
+								<a
+									href={href}
+									class="text-inherit group whitespace-nowrap font-mono text-sm">
+									{name}
+								</a>
+							</Link>
+						</li>
+					))
 				}
 			</ul>
 		</nav>
@@ -51,22 +51,22 @@ const page = '/' + Astro.url.pathname.split('/')[1]
 				</Link>
 			</li>
 			{
-			/*<li>*/
-			/*<Link noUnderline>*/
-			/*<a href="https://twitter.com/lksh_dev">*/
-			/*<Icon class="w-5" name="fa-brands:twitter" />*/
-			/*<span class="visibly-hidden">Twitter</span>*/
-			/*</a>*/
-			/*</Link>*/
-			/*</li>*/
-			/*<li>*/
-			/*<Link noUnderline>*/
-			/*<a rel="me" href="https://hachyderm.io/@lksh">*/
-			/*<Icon class="w-5" name="fa-brands:mastodon" />*/
-			/*<span class="visibly-hidden">Mastodon</span>*/
-			/*</a>*/
-			/*</Link>*/
-			/*</li>*/
+				/*<li>*/
+				/*<Link noUnderline>*/
+				/*<a href="https://twitter.com/lksh_dev">*/
+				/*<Icon class="w-5" name="fa-brands:twitter" />*/
+				/*<span class="visibly-hidden">Twitter</span>*/
+				/*</a>*/
+				/*</Link>*/
+				/*</li>*/
+				/*<li>*/
+				/*<Link noUnderline>*/
+				/*<a rel="me" href="https://hachyderm.io/@lksh">*/
+				/*<Icon class="w-5" name="fa-brands:mastodon" />*/
+				/*<span class="visibly-hidden">Mastodon</span>*/
+				/*</a>*/
+				/*</Link>*/
+				/*</li>*/
 			}
 			<li>
 				<Link noUnderline>

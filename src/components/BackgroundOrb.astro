@@ -1,0 +1,12 @@
+---
+interface Props {
+	top: string
+	left: string
+}
+---
+
+<div
+	aria-hidden="true"
+	class="absolute h-16 w-16 rounded-full bg-accent-500 blur-3xl"
+	style={{ top: `${Astro.props.top}`, left: `${Astro.props.left}` }}>
+</div>
