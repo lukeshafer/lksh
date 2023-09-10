@@ -2,12 +2,11 @@
 import Link from '../components/Link.astro'
 ---
 
-<div class="bg-white dark:bg-black">
+<div class="bg-white dark:bg-black" transition:name="site-footer">
 	<footer
-		class="w-full p-12 bg-gray-50 dark:bg-primary-800/10 grid gap-8 justify-items-center">
-		<ul class="flex flex-wrap gap-3 justify-center">
+		class="grid w-full justify-items-center gap-8 bg-gray-50 p-12 dark:bg-primary-800/10">
+		<ul class="flex flex-wrap justify-center gap-3">
 			<li><Link><a href="/blog">Blog</a></Link></li>
-			<li><Link><a href="/contact">Contact</a></Link></li>
 			<li><Link><a href="/projects">Projects</a></Link></li>
 			<li><Link><a href="https://twitter.com/lksh_dev">Twitter</a></Link></li>
 			<li>
@@ -16,22 +15,22 @@ import Link from '../components/Link.astro'
 
 			<li><Link><a href="https://github.com/lukeshafer">GitHub</a></Link></li>
 			<li>
-				<Link><a href="https://linkedin.com/in/lukealanshafer">LinkedIn</a></Link>
+				<Link>
+					<a href="https://linkedin.com/in/lukealanshafer">LinkedIn</a>
+				</Link>
 			</li>
 		</ul>
-		<p>
-			<span class="-mx-2">Built with{' '}</span><Link>
-				<a href="https://astro.build/">Astro.</a>
-			</Link>
-			<span class="-mx-2">Hosted on{' '}</span><Link
-				><a href="https://vercel.com/">Vercel.</a>
-			</Link>
-		</p>
 		<p class="text-gray-500">
-			&copy; {new Date().getFullYear()} Luke Shafer. Contact me at <a
+			&copy; <span id="footer-year">{new Date().getFullYear()}</span> Luke
+			Shafer. Contact me at <a
 				class="underline underline-offset-4"
 				href="mailto:hello@lukeshafer.com">hello@lukeshafer.com</a
 			> for inquiries.
 		</p>
 	</footer>
 </div>
+
+<script>
+	const year = document.getElementById('footer-year')
+	if (year) year.textContent = new Date().getFullYear().toString()
+</script>

@@ -6,13 +6,18 @@ import type { CollectionEntry } from 'astro:content'
 type Props = CollectionEntry<'blog'>['data']
 
 const { title, pubDate, updatedDate } = Astro.props
+const slug = Astro.params.slug
+
+console.log(slug)
 ---
 
 <BaseLayout title={title}>
 	<main
 		class="mx-auto max-w-5xl auto-rows-min justify-items-center gap-12 px-grow pb-16 pt-8">
 		<header class="grid gap-2 pb-6">
-			<h1 class="font-display text-5xl">{title}</h1>
+			<h1 class="font-display text-5xl" transition:name={`${slug}-title`}>
+				{title}
+			</h1>
 			<div
 				class="flex items-end justify-self-end font-subheading text-lg font-light">
 				<div class="text-stone-500">
@@ -29,6 +34,7 @@ const { title, pubDate, updatedDate } = Astro.props
 			</div>
 		</header>
 		<article
+			transition:name={`${slug}-content`}
 			class="prose prose-indigo mx-auto dark:prose-invert prose-h2:font-subheading prose-h2:font-normal prose-p:text-base prose-p:leading-5">
 			<slot />
 		</article>

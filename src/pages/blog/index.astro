@@ -18,24 +18,28 @@ const collection = (
 				data: { ...post.data, title: `(DRAFT) ${post.data.title}` },
 		  }
 		: post
-)
+).sort((a, b) => a.data.pubDate > b.data.pubDate ? -1 : 1)
 ---
 
 <BaseLayout title="Blog | Luke Shafer">
-	<main class="my-6 px-grow">
+	<main class="w-full relative flex px-grow my-12 flex-col gap-12 justify-center group">
 		<h1 class="text-center font-display text-5xl">Blog</h1>
-		<ul class="flex w-full flex-wrap justify-center gap-8 p-4 py-10">
+		<ul class="flex w-full flex-wrap justify-center gap-8 p-4 py-10 max-w-4xl mx-auto">
 			{
 				collection.map((post) => (
 					<li class="w-96 items-center border-primary-400">
-						<h2 class="font-subheading text-2xl font-medium">
+						<h2
+							class="font-subheading text-2xl font-medium"
+							transition:name={`${post.slug}-title`}>
 							{post.data.title}
 						</h2>
 						<FormattedDate
 							date={post.data.pubDate}
 							class="w-max whitespace-nowrap opacity-70"
 						/>
-						<p class="px-2 pt-3">{post.data.description}</p>
+						<p class="px-2 pt-3" transition:name={`${post.slug}-content`}>
+							{post.data.description}
+						</p>
 						<Link>
 							<a href={`/blog/${post.slug}/`} class="text-sm">
 								Read more...

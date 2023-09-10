@@ -1,30 +1,29 @@
 ---
-/*import { Icon } from 'astro-icon'*/
-/*import { ContactDialog, OpenContactDialogButton } from './Contact'*/
-/*import Link from './Link.astro'*/
-/*import { Language } from './Language'*/
-import { Image } from '@astrojs/image/components'
-
+import { Image } from 'astro:assets'
 import headshot from '../assets/headshot-bw-square.png'
+import Link from './Link.astro'
 ---
 
 <section
 	id="hero"
-	class="mx-auto py-8 flex min-h-[50svh] max-w-6xl flex-row-reverse flex-wrap content-center items-center justify-center gap-16 px-grow">
-	<div
-		class="headshot-container relative max-h-[16rem] w-full max-w-[16rem] after:absolute after:top-4 after:left-4 after:block after:h-full after:w-full after:border-[6px] after:border-accent-700 dark:after:border-accent-400">
+	class="mx-auto flex min-h-[50svh] max-w-6xl flex-row-reverse flex-wrap content-center items-center justify-center gap-16 px-grow py-8">
+	<div class="headshot-container relative max-h-[16rem] w-full max-w-[16rem]">
 		<Image
 			id="headshot"
 			src={headshot}
-			width={675}
-			height={675}
-			fit="cover"
-			format="webp"
+			width="500"
+			height="500"
 			alt="My headshot"
-			class="relative z-10 h-full w-full bg-primary-100 object-cover text-center text-white shadow-sm shadow-black/10 dark:bg-primary-100 dark:text-black"
+			class="relative z-10 bg-primary-100 object-cover text-center text-white shadow-sm shadow-black/10 dark:bg-primary-100 dark:text-black"
 		/>
+		<div
+			aria-hidden="true"
+			class="absolute left-4 top-4 h-full w-full border-[6px] border-accent-700 dark:border-accent-400">
+		</div>
 	</div>
-	<div id="text" class="grid w-[21rem] max-w-[90vw] flex-1 content-center gap-4">
+	<div
+		id="text"
+		class="grid w-[21rem] max-w-[90vw] flex-1 content-center gap-4">
 		<h1
 			class="top-0 font-display text-5xl font-medium text-primary-700 dark:text-primary-300">
 			Luke Shafer
@@ -39,5 +38,6 @@ import headshot from '../assets/headshot-bw-square.png'
 			I create thoughtfully-designed, scalable systems, with a focus on
 			providing the best possible user experience.
 		</p>
+		<p class="mt-6 text-lg">To get in touch, email me at <a class="text-primary-700 underline dark:text-primary-300" href="mailto:hello@lukeshafer.com">hello@lukeshafer.com</a></p>
 	</div>
 </section>

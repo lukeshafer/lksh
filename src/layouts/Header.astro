@@ -7,37 +7,41 @@ const navLinks = [
 	{ name: 'Home', href: '/' },
 	{ name: 'Projects', href: '/projects' },
 	{ name: 'Blog', href: '/blog' },
-	{ name: 'Contact', href: '/contact' },
 ]
 
 const page = '/' + Astro.url.pathname.split('/')[1]
 ---
 
 <div class="bg-white dark:bg-black">
+	<style>
+	</style>
 	<header
-		class="sticky inset-x-0 top-0 z-50 flex grid-flow-dense flex-col items-center justify-between bg-primary-100 from-primary-100 to-primary-200 px-4 py-3 dark:bg-primary-800/10 sm:grid sm:grid-cols-4 sm:grid-rows-1">
+		transition:name="header"
+		class="sticky inset-x-0 top-0 z-50 flex grid-flow-dense flex-col items-center justify-between bg-primary-100 from-primary-100 to-primary-200 px-4 py-3 dark:bg-primary-800/10 sm:grid sm:grid-rows-1 sm:gap-8 sm:justify-center sm:grid-cols-[auto_minmax(auto,50rem)_auto]">
 		<Link noUnderline>
 			<a
 				href="/"
-				class="stroke-primary-800 hover:stroke-primary-600 focus:stroke-primary-600 dark:stroke-primary-100 hover:dark:stroke-primary-400 focus:dark:stroke-primary-400">
+				class="w-fit stroke-primary-800 hover:stroke-primary-600 focus:stroke-primary-600 dark:stroke-primary-100 hover:dark:stroke-primary-400 focus:dark:stroke-primary-400">
 				<Logo class="z-10 h-6 w-6 sm:h-8 sm:w-8" />
 				<span class="visibly-hidden">Logo</span>
 			</a>
 		</Link>
-		<nav class="col-span-2">
-			<ul class="flex max-w-2xl flex-row flex-wrap justify-evenly gap-4">
+		<nav>
+			<ul class="mx-auto flex flex-row flex-wrap gap-8">
 				{
-				navLinks.map(({ name, href }) => (
-					<li class={href === page ? 'font-bold' : 'font-light'}>
-						<Link>
-							<a
-								href={href}
-								class="text-inherit group whitespace-nowrap font-mono text-sm">
-								{name}
-							</a>
-						</Link>
-					</li>
-				))
+					navLinks.map(({ name, href }) => (
+						<li
+							transition:name={`nav-link-${name}`}
+							class={href === page ? 'font-bold' : 'font-light'}>
+							<Link>
+								<a
+									href={href}
+									class="text-inherit group whitespace-nowrap font-mono text-sm">
+									{name}
+								</a>
+							</Link>
+						</li>
+					))
 				}
 			</ul>
 		</nav>
@@ -50,24 +54,6 @@ const page = '/' + Astro.url.pathname.split('/')[1]
 					</a>
 				</Link>
 			</li>
-			{
-			/*<li>*/
-			/*<Link noUnderline>*/
-			/*<a href="https://twitter.com/lksh_dev">*/
-			/*<Icon class="w-5" name="fa-brands:twitter" />*/
-			/*<span class="visibly-hidden">Twitter</span>*/
-			/*</a>*/
-			/*</Link>*/
-			/*</li>*/
-			/*<li>*/
-			/*<Link noUnderline>*/
-			/*<a rel="me" href="https://hachyderm.io/@lksh">*/
-			/*<Icon class="w-5" name="fa-brands:mastodon" />*/
-			/*<span class="visibly-hidden">Mastodon</span>*/
-			/*</a>*/
-			/*</Link>*/
-			/*</li>*/
-			}
 			<li>
 				<Link noUnderline>
 					<a href="https://github.com/lukeshafer" title="GitHub">

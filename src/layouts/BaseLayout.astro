@@ -2,11 +2,12 @@
 // COMPONENTS
 import Footer from './Footer.astro'
 import Header from './Header.astro'
+import { ViewTransitions } from 'astro:transitions'
 
 // FONTS
-import '@fontsource/raleway/variable.css'
-import '@fontsource/work-sans/variable.css'
-import '@fontsource/jetbrains-mono/variable.css'
+import '@fontsource-variable/raleway'
+import '@fontsource-variable/work-sans'
+import '@fontsource-variable/jetbrains-mono'
 import '@fontsource/khula'
 
 // STYLES
@@ -23,7 +24,7 @@ const { title } = Astro.props
 <html
 	lang="en"
 	style="overflow-x:hidden"
-	class="scroll-smooth motion-reduce:scroll-auto bg-gray-50 dark:bg-gray-900 font-body">
+	class="scroll-smooth bg-gray-50 font-body motion-reduce:scroll-auto dark:bg-gray-900">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -39,11 +40,12 @@ const { title } = Astro.props
 			content="I'm a software engineer in central Ohio, skilled in JavaScript and TypeScript."
 		/>
 		<title>{title ? title : 'Luke Shafer'}</title>
+		<ViewTransitions />
 	</head>
 	<body
-		class="min-h-screen flex flex-col bg-gray-50 dark:bg-black text-gray-800 dark:text-gray-50 bg-radial-at-bl from-primary-200 to-white dark:from-primary-900/30 to-black bg-fixed selection:bg-primary-600 selection:dark:bg-primary-400 selection:text-gray-50 selection:dark:text-gray-900">
+		class="flex min-h-screen flex-col bg-gray-50 bg-radial-at-bl from-primary-200 to-black to-white bg-fixed text-gray-800 selection:bg-primary-600 selection:text-gray-50 dark:bg-black dark:from-primary-900/30 dark:text-gray-50 selection:dark:bg-primary-400 selection:dark:text-gray-900">
 		<Header />
-		<div class="flex-1">
+		<div class="flex-1" transition:name="main-site-content">
 			<slot />
 		</div>
 		<Footer />
