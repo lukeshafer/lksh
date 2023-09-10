@@ -8,7 +8,7 @@ type Props = CollectionEntry<'blog'>['data']
 const { title, pubDate, updatedDate } = Astro.props
 const slug = Astro.params.slug
 
-console.log(slug)
+console.log({ slug, title, pubDate, updatedDate })
 ---
 
 <BaseLayout title={title}>

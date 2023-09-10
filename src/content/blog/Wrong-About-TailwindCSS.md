@@ -1,6 +1,6 @@
 ---
 title: 'I thought Tailwind was bad. I was wrong.'
-pubDate: 'Oct 30 2022'
+pubDate: Oct 30 2022
 description: I'm not proud of it. But I like Tailwind.
 ---
 

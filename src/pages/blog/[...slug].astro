@@ -1,23 +1,24 @@
 ---
-import { getCollection, getEntryBySlug } from 'astro:content'
+import { getCollection } from 'astro:content'
 import PostLayout from '../../layouts/PostLayout.astro'
+
+export async function getStaticPaths() {
+	const blogEntries = await getCollection('blog')
+	console.log({ blogEntries })
+	return blogEntries.map((entry) => ({
+		params: { slug: entry.slug },
+		props: { entry },
+	}))
+}
 
 if (!Astro.params.slug) {
 	throw new Error('Missing slug')
 }
 
-const entry = await getEntryBySlug('blog', Astro.params.slug)
+const { entry } = Astro.props
 
 if (!entry) {
 	throw new Error('Not found')
-}
-
-export async function getStaticPaths() {
-	const blogEntries = await getCollection('blog')
-	return blogEntries.map((entry) => ({
-		params: { slug: entry.slug },
-		props: { entry },
-	}))
 }
 
 const { Content } = await entry.render()
